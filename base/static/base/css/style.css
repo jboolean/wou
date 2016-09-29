@@ -247,16 +247,14 @@ body {
     .facilitator {
       margin: 0 0 3rem 0;
       padding: 0 0 6rem 0; } }
-  @media (min-width: 64rem) {
-    .facilitator {
-      padding: 0 0 2rem 0; } }
   @media (min-width: 71.25rem) {
     .facilitator {
       width: 45.8333333333%;
       float: left;
       margin-left: 2.0833333333%;
       margin-right: 2.0833333333%;
-      border-bottom: none; } }
+      border-bottom: none;
+      padding: 0 0 2rem 0; } }
   .facilitator:last-child {
     border-bottom: none; }
   .facilitator.show .facilitator-description {

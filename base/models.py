@@ -17,6 +17,9 @@ class Base(Model):
 
 
 class ContentBlock(Base):
+    class Meta:
+        ordering = ['position', 'name']
+
     content = HTMLField()
     position = PositiveSmallIntegerField(null=True)
 

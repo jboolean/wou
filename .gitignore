@@ -87,3 +87,24 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# ignore buildout's workspace stuff:
+.installed.cfg
+bin/
+develop-eggs/
+eggs/
+parts/
+
+# ignore uploaded files
+uploads
+
+# ignore codekit config
+config.codekit
+
+# ignore sqlite db
+db.sqlite3
+
+# sass cache
+base/static/base/css/.sass-cache
+
+.DS_Store

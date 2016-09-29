@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+<nav class="navigation">
+	<div class="navicon">&#9776;</div>
+	<ul class="navigation-menu">
+		<li class="navigation-menu-item">
+			<a href="#header">Wound</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="#tools">Tools</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="#trainings">Trainings</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="#facilitators">Facilitators</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="#visit">About</a>
+		</li>				
+	</ul>
+</nav>
+{% endblock navigation %}
+
+{% block content %}
+<header id="header">
+	<h1 class="header">WOUND</h1>
+	<!-- INTRO -->		
+	<section class="section section-{{ content_blocks.first.slug }}" id="{{ content_blocks.first.slug }}">
+		<div class="section-content">{{ content_blocks.first.content|safe }}</div>
+	</section>
+</header>
+
+<!-- TOOLS -->
+<section class="section section-tools" id="tools">
+	<h2 class="section-header">TOOLS</h2>		
+	<div class="section-content">	
+		{% for tool in tools %}
+		<div class="tool" id="{{ tool.slug }}">
+			<img class="tool-image" src="{{ tool.image.url }}" alt="{{ tool.name }}" />
+			<h3 class="tool-name">{{ tool.name }}</h3>
+			
+			<span class="tool-meta">Tool Type: </span>{{ tool.get_type_display }}
+			<br />
+
+			<span class="tool-meta">Training:</span>
+			{% if tool.training_set.all %}
+			{% for training in tool.training_set.all %}
+				<a class="tool-training" href="#{{ training.slug }}">{{ training.name }}</a>
+			{% endfor %}
+			{% else %}
+			None at this time
+			{% endif %}
+			<br />
+
+			{% if tool.facilitator_set.all %}
+			{% for facilitator in tool.facilitator_set.all %}
+			<span class="tool-meta">Facilitator: </span>
+			<a class="tool-facilitator" href="#{{ facilitator.slug }}">{{ facilitator.name }}</a>
+			{% endfor %}
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+<!-- TRAININGS -->
+<section class="section section-trainings" id="trainings">
+	<h2 class="section-header">TRAININGS</h2>		
+	<div class="section-content">
+		{% for training in trainings %}
+		<div class="training" id="{{ training.slug }}">
+			<h3 class="training-time">{{ training.date|date:"l, F j, g:iA" }}</h3>
+			<span class="training-name">{{ training.name }}</span>
+			<br />
+			<span class="training-facilitator">{{ training.facilitators.first.name }}</span>
+			<br />
+			<a class="training-rsvp" href="{{ training.link }}" target="_blank">RSVP</a>
+		</div>	
+		{% endfor %}
+	</div>		
+</section>
+
+<!-- FACILITATORS -->		
+<section class="section section-facilitators" id="facilitators">
+	<h2 class="section-header">FACILITATORS</h2>	
+		<div class="section-content">	
+		{% for facilitator in facilitators %}
+		<div class="facilitator" id="{{ facilitator.slug }}">
+			<h3 class="facilitator-name">{{ facilitator.name }}</h3>
+			<div class="facilitator-description">{{ facilitator.description|safe }}</div>
+			<a href="#" class="facilitator-toggle">show more</a>
+		</div>		
+		{% endfor %}
+	</div>
+</section>
+
+{% for content_block in content_blocks %}
+	{% if not forloop.first %}  
+	<!-- {{ content_block.name|upper }} -->				
+	<section class="section section-{{ content_block.slug }}" id="{{ content_block.slug }}">
+		<h2 class="section-header">{{ content_block.name|upper }}</h2>
+		<div class="section-content">{{ content_block.content|safe }}</div>
+	</section>
+	{% endif %}	
+{% endfor %}		
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wound</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/style.css' %}" />
+</head>    
+<body>
+    {% block navigation %}
+    {% endblock navigation %}  
+    <div class="content">   
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <script type="text/javascript" src="{% static 'base/js/min/velocity.min.js' %}"></script>    
+    <script type="text/javascript" src="{% static 'base/js/min/velocity.ui.min.js' %}"></script>        
+    <script type="text/javascript" src="{% static 'base/js/site.js' %}"></script>    
+</body>
+</html>

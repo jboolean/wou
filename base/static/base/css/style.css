@@ -5,12 +5,12 @@ p {
   margin: 0 0 2rem 0; }
 
 a {
-  text-decoration: none;
-  color: #7820c8;
+  text-decoration: underline;
+  color: #170c01;
   z-index: 20;
   position: relative; }
   a:visited {
-    color: #7820c8; }
+    color: #170c01; }
 
 ul {
   list-style: none;
@@ -29,7 +29,8 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #170c01;
+  background-color: #fbf9f8;
   letter-spacing: 0.05rem; }
   @media (min-width: 768px) {
     body {
@@ -62,7 +63,7 @@ body {
     height: auto;
     opacity: 1; }
   .navigation.show .navicon {
-    color: white; }
+    color: #fbf9f8; }
 
 .navigation-menu {
   z-index: 2;
@@ -78,7 +79,7 @@ body {
       text-align: center;
       opacity: 1;
       padding: 0;
-      border-bottom: 1px solid white; } }
+      border-bottom: 1px solid #fbf9f8; } }
 
 .navigation-menu-item {
   width: 100%;
@@ -100,7 +101,7 @@ body {
       .navigation-menu-item a {
         display: block;
         padding: 0.5rem 3rem;
-        color: #333;
+        color: #170c01;
         font-family: helvetica;
         text-transform: uppercase; } }
 
@@ -109,7 +110,7 @@ body {
   position: absolute;
   right: 0;
   z-index: 10;
-  color: #7820c8;
+  color: #170c01;
   font-size: 2rem;
   padding: 0.3rem 0.6rem; }
   @media (min-width: 768px) {
@@ -135,8 +136,8 @@ body {
   text-align: center;
   margin: 0px 0 3rem 0;
   padding: 9rem 0 5rem 0;
-  background: white;
-  color: #7820c8; }
+  background: #fbf9f8;
+  color: #170c01; }
   @media (min-width: 768px) {
     .header {
       font-size: 8rem; } }
@@ -151,8 +152,8 @@ body {
 .section-header {
   margin: 0 0 2rem 0;
   text-align: center;
-  background-color: #7820c8;
-  color: white;
+  background-color: #fbf9f8;
+  color: #170c01;
   font-size: 3rem;
   letter-spacing: 0.1rem; }
   @media (min-width: 768px) {
@@ -187,7 +188,7 @@ body {
 .tool {
   margin: 0 0 3rem 0;
   padding: 0 0 3rem 0;
-  border-bottom: 1px solid #7820c8; }
+  border-bottom: 1px solid #170c01; }
   @media (min-width: 960px) {
     .tool {
       width: 45.8333333333%;
@@ -221,7 +222,7 @@ body {
 .training {
   margin: 0 0 3rem 0;
   padding: 0 0 3rem 0;
-  border-bottom: 1px solid #7820c8; }
+  border-bottom: 1px solid #170c01; }
   .training:last-child {
     border-bottom: none; }
     @media (min-width: 1140px) {
@@ -240,7 +241,7 @@ body {
 .facilitator {
   margin: 0 0 1rem 0;
   padding: 0 0 3rem 0;
-  border-bottom: 1px solid #7820c8; }
+  border-bottom: 1px solid #170c01; }
   @media (min-width: 768px) {
     .facilitator {
       margin: 0 0 3rem 0;

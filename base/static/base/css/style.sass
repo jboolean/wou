@@ -11,7 +11,8 @@ $color-tertiary: #fcee21
 $color-grey: #a1acb5
 $color-grey-light: #dce8ef
 $color-grey-dark: #333
-$color-type: #333
+$color-type: #170c01
+$color-background: #fbf9f8
 
 // Breakpoints
 $mobile-landscape: 480px
@@ -33,13 +34,13 @@ p
   margin: 0 0 2rem 0
 
 a
-  text-decoration: none
-  color: $color-primary 
+  text-decoration: underline
+  color: $color-type 
   z-index: 20
   position: relative
 
   &:visited
-    color: $color-primary
+    color: $color-type 
 
 ul 
   list-style: none
@@ -59,6 +60,7 @@ body
   margin: 0
   padding: 0
   color: $color-type
+  background-color: $color-background
   letter-spacing: 0.05rem
 
   @media (min-width: $tablet)
@@ -97,7 +99,7 @@ body
       opacity: 1
 
     .navicon
-      color: white
+      color: $color-background
 
 .navigation-menu
   z-index: 2
@@ -113,7 +115,7 @@ body
     text-align: center
     opacity: 1
     padding: 0
-    border-bottom: 1px solid white
+    border-bottom: 1px solid $color-background
   
 .navigation-menu-item
   width: 100%
@@ -145,7 +147,7 @@ body
   position: absolute
   right: 0
   z-index: 10
-  color: $color-primary
+  color: $color-type 
   font-size: 2rem
   padding: .3rem .6rem
 
@@ -172,8 +174,8 @@ body
   text-align: center
   margin: 0px 0 3rem 0
   padding: 9rem 0 5rem 0
-  background: white
-  color: $color-primary
+  background: $color-background
+  color: $color-type 
 
   @media (min-width: $tablet)
     font-size: 8rem   
@@ -188,8 +190,8 @@ body
 .section-header
   margin: 0 0 2rem 0
   text-align: center
-  background-color: $color-primary
-  color: white
+  background-color: $color-background
+  color: $color-type
   font-size: 3rem
   letter-spacing: 0.1rem
 
@@ -220,7 +222,7 @@ body
 .tool
   margin: 0 0 3rem 0
   padding: 0 0 3rem 0
-  border-bottom: 1px solid $color-primary
+  border-bottom: 1px solid $color-type
 
   @media (min-width: $desktop)
     @include span(6 of 12 split)
@@ -249,7 +251,7 @@ body
 .training
   margin: 0 0 3rem 0
   padding: 0 0 3rem 0
-  border-bottom: 1px solid $color-primary
+  border-bottom: 1px solid $color-type
 
   &:last-child 
     border-bottom: none  
@@ -269,7 +271,7 @@ body
 .facilitator
   margin: 0 0 1rem 0
   padding: 0 0 3rem 0
-  border-bottom: 1px solid $color-primary
+  border-bottom: 1px solid $color-type
 
   @media (min-width: $tablet)
     margin: 0 0 3rem 0

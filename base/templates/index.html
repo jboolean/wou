@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block navigation %}
 <nav class="navigation">
 	<div class="navicon">&#9776;</div>
@@ -25,10 +27,12 @@
 
 {% block content %}
 <header id="header">
-	<h1 class="header">WOUND</h1>
 	<!-- INTRO -->		
 	<section class="section section-{{ content_blocks.first.slug }}" id="{{ content_blocks.first.slug }}">
-		<div class="section-content">{{ content_blocks.first.content|safe }}</div>
+		<div class="section-content">
+			{{ content_blocks.first.content|safe }}
+		</div>
+		<img class="header" alt="Wound" src="{% static 'base/images/wound_space.jpg' %}" />		
 	</section>
 </header>
 

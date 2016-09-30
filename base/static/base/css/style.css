@@ -132,19 +132,13 @@ body {
   overflow: auto; }
 
 .header {
-  font-size: 4rem;
-  text-align: center;
-  margin: 0px 0 3rem 0;
-  padding: 9rem 0 5rem 0;
-  background: rgba(255, 249, 248, 0.4);
-  color: #170c01; }
+  width: 100%; }
   @media (min-width: 768px) {
     .header {
-      font-size: 8rem; } }
+      width: 100%; } }
   @media (min-width: 1140px) {
     .header {
-      font-size: 7rem;
-      padding: 9rem 0 2rem 0; } }
+      width: 100%; } }
 
 .section {
   margin: 0 0 5rem 0; }
@@ -180,6 +174,10 @@ body {
 @media (min-width: 960px) {
   .section-tools .section-content {
     padding: 0; } }
+
+.section-wound .section-content {
+  padding-top: 10rem;
+  padding-bottom: 5rem; }
 
 @media (min-width: 960px) {
   .section-wound .section-content, .section-about .section-content, .section-visit .section-content {

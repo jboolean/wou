@@ -11,6 +11,7 @@ $color-tertiary: #fcee21
 $color-grey: #a1acb5
 $color-grey-light: #dce8ef
 $color-grey-dark: #333
+$color-type: #333
 
 // Breakpoints
 $mobile-landscape: 480px
@@ -57,6 +58,7 @@ body
   line-height: 1.5
   margin: 0
   padding: 0
+  color: $color-type
 
   @media (min-width: $tablet)
     font-size: 3rem
@@ -98,7 +100,7 @@ body
 
 .navigation-menu
   z-index: 2
-  background: $color-primary
+  background: rgba(255,255,255,0.9)
   text-align: center
   padding: 0.5rem
   opacity: 0
@@ -118,7 +120,6 @@ body
 
   @media (min-width: $desktop)
     display: inline-block
-    border-right: 1px solid white
     width: auto
     margin: 0
     font-size: 2rem
@@ -126,19 +127,15 @@ body
   @media (min-width: $widescreen)
     font-size: 1.7rem
 
-  &:last-child 
-    @media (min-width: $desktop)
-      border-right: none
-    
   a
     text-decoration: none
     text-transform: uppercase
-    color: white
+    font-weight: bold
 
     @media (min-width: $desktop)
       display: block
       padding: 0.5rem 3rem
-      color: #fff
+      color: $color-type
       font-family: helvetica
       text-transform: uppercase
 

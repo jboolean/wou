@@ -28,7 +28,8 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  color: #333; }
   @media (min-width: 768px) {
     body {
       font-size: 3rem;
@@ -64,7 +65,7 @@ body {
 
 .navigation-menu {
   z-index: 2;
-  background: #7820c8;
+  background: rgba(255, 255, 255, 0.9);
   text-align: center;
   padding: 0.5rem;
   opacity: 0;
@@ -84,25 +85,21 @@ body {
   @media (min-width: 960px) {
     .navigation-menu-item {
       display: inline-block;
-      border-right: 1px solid white;
       width: auto;
       margin: 0;
       font-size: 2rem; } }
   @media (min-width: 1140px) {
     .navigation-menu-item {
       font-size: 1.7rem; } }
-  @media (min-width: 960px) {
-    .navigation-menu-item:last-child {
-      border-right: none; } }
   .navigation-menu-item a {
     text-decoration: none;
     text-transform: uppercase;
-    color: white; }
+    font-weight: bold; }
     @media (min-width: 960px) {
       .navigation-menu-item a {
         display: block;
         padding: 0.5rem 3rem;
-        color: #fff;
+        color: #333;
         font-family: helvetica;
         text-transform: uppercase; } }
 

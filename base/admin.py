@@ -19,7 +19,7 @@ class PageForm(FlatpageForm):
 
 
 class PageAdmin(FlatPageAdmin):
-	form = PageForm		
+	form = PageForm
 
 
 class ContentBlockAdmin(admin.ModelAdmin):
@@ -33,8 +33,8 @@ class FacilitatorAdmin(admin.ModelAdmin):
 
 
 class ToolAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('name',)}    
-    list_display = ('name', 'type')
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ('name', 'type', 'made_by')
     list_editable = ('type',)
 
 

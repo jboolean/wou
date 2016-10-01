@@ -20,32 +20,38 @@
 		</li>
 		<li class="navigation-menu-item">
 			<a href="#about">About</a>
-		</li>				
+		</li>
 	</ul>
 </nav>
 {% endblock navigation %}
 
 {% block content %}
 <header id="header">
-	<!-- INTRO -->		
+	<!-- INTRO -->
 	<section class="section section-{{ content_blocks.first.slug }}" id="{{ content_blocks.first.slug }}">
 		<div class="section-content">
 			{{ content_blocks.first.content|safe }}
 		</div>
-		<img class="header" alt="Wound" src="{% static 'base/images/wound_space.jpg' %}" />		
+		<img class="header" alt="Wound" src="{% static 'base/images/wound_space.jpg' %}" />
 	</section>
 </header>
 
 <!-- TOOLS -->
 <section class="section section-tools" id="tools">
-	<h2 class="section-header">TOOLS</h2>		
-	<div class="section-content">	
+	<h2 class="section-header">TOOLS</h2>
+	<div class="section-content">
 		{% for tool in tools %}
 		<div class="tool" id="{{ tool.slug }}">
 			<img class="tool-image" src="{{ tool.image.url }}" alt="{{ tool.name }}" />
 			<h3 class="tool-name">{{ tool.name }}</h3>
-			
+
 			<span class="tool-meta">Tool Type: </span>{{ tool.get_type_display }}
+			<br />
+
+			<span class="tool-meta">Made by: </span>{{ tool.made_by }}
+			<br />
+
+			<span class="tool-meta">Info: </span>{{ tool.info }}
 			<br />
 
 			<span class="tool-meta">Training:</span>
@@ -71,7 +77,7 @@
 
 <!-- TRAININGS -->
 <section class="section section-trainings" id="trainings">
-	<h2 class="section-header">TRAININGS</h2>		
+	<h2 class="section-header">TRAININGS</h2>
 	<div class="section-content">
 		{% for training in trainings %}
 		<div class="training" id="{{ training.slug }}">
@@ -81,32 +87,32 @@
 			<span class="training-facilitator">{{ training.facilitators.first.name }}</span>
 			<br />
 			<a class="training-rsvp" href="{{ training.link }}" target="_blank">RSVP</a>
-		</div>	
+		</div>
 		{% endfor %}
-	</div>		
+	</div>
 </section>
 
-<!-- FACILITATORS -->		
+<!-- FACILITATORS -->
 <section class="section section-facilitators" id="facilitators">
-	<h2 class="section-header">FACILITATORS</h2>	
-		<div class="section-content">	
+	<h2 class="section-header">FACILITATORS</h2>
+		<div class="section-content">
 		{% for facilitator in facilitators %}
 		<div class="facilitator" id="{{ facilitator.slug }}">
 			<h3 class="facilitator-name">{{ facilitator.name }}</h3>
 			<div class="facilitator-description">{{ facilitator.description|safe }}</div>
 			<a href="#" class="facilitator-toggle">show more</a>
-		</div>		
+		</div>
 		{% endfor %}
 	</div>
 </section>
 
 {% for content_block in content_blocks %}
-	{% if not forloop.first %}  
-	<!-- {{ content_block.name|upper }} -->				
+	{% if not forloop.first %}
+	<!-- {{ content_block.name|upper }} -->
 	<section class="section section-{{ content_block.slug }}" id="{{ content_block.slug }}">
 		<h2 class="section-header">{{ content_block.name|upper }}</h2>
 		<div class="section-content">{{ content_block.content|safe }}</div>
 	</section>
-	{% endif %}	
-{% endfor %}		
+	{% endif %}
+{% endfor %}
 {% endblock content %}

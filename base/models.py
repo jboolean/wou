@@ -33,7 +33,8 @@ class Tool(Base):
         ('view', 'On View'),
         ('future', 'Future Tool'),
     )
-
+    made_by = CharField(max_length=200, null=True)
+    info = CharField(max_length=255, null=True)
     image = ImageField(null=True, upload_to='tools')
     type = CharField(
         max_length=8,

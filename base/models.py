@@ -6,14 +6,14 @@ from tinymce.models import HTMLField
 class Base(Model):
     class Meta:
         abstract = True
-                    
+
     name = CharField(max_length=200)
     slug = CharField(max_length=200)
     created = DateTimeField(auto_now_add=True, editable=False)
     updated = DateTimeField(auto_now=True, editable=False)
 
     def __str__(self):
-        return self.name        
+        return self.name
 
 
 class ContentBlock(Base):
@@ -39,7 +39,7 @@ class Tool(Base):
         max_length=8,
         choices=TOOL_CHOICES,
         default='use',
-    )   
+    )
 
 
 class Facilitator(Base):
@@ -55,7 +55,7 @@ class Training(Base):
         ordering = ['date', 'name']
 
     date = DateTimeField()
-    facilitators = ManyToManyField(Facilitator, blank=True) 
+    facilitators = ManyToManyField(Facilitator, blank=True)
     tools = ManyToManyField(Tool, blank=True)
     description = HTMLField(null=True, blank=True)
     link = URLField()

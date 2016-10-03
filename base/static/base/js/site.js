@@ -47,12 +47,8 @@ scrollToSlug = function() {
 
 	if (urlParts.length > 2) {
 		var slug = urlParts.pop();
-
-		Velocity(
-			document.querySelector('#' + slug),
-			'scroll',
-			{ duration: 0, offset: -40 }
-		);
+		var offset = document.querySelector('#' + slug).getBoundingClientRect().top;
+		document.body.scrollTop = offset;
 	}
 };
 

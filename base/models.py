@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.conf import settings
 from django.db.models import *
 from tinymce.models import HTMLField
 
@@ -11,6 +12,10 @@ class Base(Model):
     slug = CharField(max_length=200)
     created = DateTimeField(auto_now_add=True, editable=False)
     updated = DateTimeField(auto_now=True, editable=False)
+
+    @property
+    def url(self):
+        return "%s/%s" % (settings.SITE_URL, self.slug)
 
     def __str__(self):
         return self.name

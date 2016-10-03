@@ -24,23 +24,28 @@ class PageAdmin(FlatPageAdmin):
 
 class ContentBlockAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    list_display = ('name', 'position')
+    readonly_fields = ('url',)
+    list_display = ('name', 'position', 'url')
     list_editable = ('position',)
 
 
 class FacilitatorAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+    readonly_fields = ('url',)
+    list_display = ('name', 'url')
 
 
 class ToolAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    list_display = ('name', 'type', 'made_by')
+    readonly_fields = ('url',)
+    list_display = ('name', 'type', 'made_by', 'url')
     list_editable = ('type',)
 
 
 class TrainingAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    list_display = ('name', 'date', 'link')
+    readonly_fields = ('url',)
+    list_display = ('name', 'date', 'link', 'url')
 
 
 admin.site.unregister(FlatPage)

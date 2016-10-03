@@ -127,7 +127,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# TinyMCE 
+# TinyMCE
 
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': 'spellchecker,paste',

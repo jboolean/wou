@@ -19,13 +19,6 @@ class IndexView(generic.TemplateView):
         context['tools'] = Tool.objects.all()
         context['trainings'] = Training.objects.all()
         context['facilitators'] = Facilitator.objects.all()
+        if 'slug' in self.kwargs:
+            context['slug'] = self.kwargs['slug']
         return context
-
-
-class DetailView(generic.DetailView):
-    model = Tool
-    template_name = 'detail.html'
-
-
-def vote(request, question_id):
-	pass # same as above, no changes needed.

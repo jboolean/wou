@@ -86,6 +86,7 @@
 			<br />
 			<span class="training-facilitator">{{ training.facilitators.first.name }}</span>
 			<br />
+			<div class="training-description">{{ training.description|safe }}</div>
 			<a class="training-rsvp" href="{{ training.link }}" target="_blank">RSVP</a>
 		</div>
 		{% endfor %}

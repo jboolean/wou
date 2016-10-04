@@ -21,28 +21,28 @@ $tablet-wide: 768px
 $desktop: 960px
 $widescreen: 1140px
 
-* 
+*
   box-sizing: border-box
 
-%clearfix 
-  &:after 
+%clearfix
+  &:after
     content: ""
     display: table
     clear: both
 
-p 
+p
   margin: 0 0 2rem 0
 
 a
   text-decoration: underline
-  color: $color-type 
+  color: $color-type
   z-index: 20
   position: relative
 
   &:visited
-    color: $color-type 
+    color: $color-type
 
-ul 
+ul
   list-style: none
   margin: 0
   padding: 0
@@ -51,7 +51,7 @@ li
   margin: 0
   padding: 0
 
-html 
+html
   font-size: 62.5% // 10px
 
 body
@@ -72,13 +72,13 @@ body
     line-height: 1.45
 
   @media (min-width: $widescreen)
-    font-size: 2.1rem  
+    font-size: 2.1rem
     line-height: 1.35
 
 .navigation
   position: fixed
   z-index: 2
-  top: 0 
+  top: 0
   right: 0
   padding: 0
   width: 100%
@@ -92,7 +92,7 @@ body
       display: table
       content: " "
       clear: both
-  
+
   &.show
     .navigation-menu
       height: auto
@@ -109,14 +109,14 @@ body
   opacity: 0
   transition: opacity .25s ease-in-out
   -moz-transition: opacity .25s ease-in-out
-  -webkit-transition: opacity .25s ease-in-out    
+  -webkit-transition: opacity .25s ease-in-out
 
   @media (min-width: $desktop)
     text-align: center
     opacity: 1
     padding: 0
     border-bottom: 1px solid $color-background
-  
+
 .navigation-menu-item
   width: 100%
   margin: 0 0 0.5rem 0
@@ -126,7 +126,7 @@ body
     width: auto
     margin: 0
     font-size: 2rem
-    
+
   @media (min-width: $widescreen)
     font-size: 1.7rem
 
@@ -147,7 +147,7 @@ body
   position: absolute
   right: 0
   z-index: 10
-  color: $color-type 
+  color: $color-type
   font-size: 3.5rem
   padding: 0.3rem 0.9rem
 
@@ -161,7 +161,7 @@ body
   &:hover
     @media (min-width: $desktop)
       cursor: pointer
-        
+
 .content
   z-index: 1
   width: 100%
@@ -169,7 +169,7 @@ body
   -webkit-overflow-scrolling: touch
   overflow: auto
 
-.header 
+.header
   width: 100%
 
   @media (min-width: $tablet)
@@ -190,7 +190,7 @@ body
   letter-spacing: 0.1rem
 
   @media (min-width: $tablet)
-    font-size: 5rem  
+    font-size: 5rem
 
   @media (min-width: $widescreen)
     font-size: 4rem
@@ -201,9 +201,9 @@ body
   overflow: auto
 
   @media (min-width: $tablet)
-    padding: 0 4rem 
+    padding: 0 4rem
 
-.section-tools 
+.section-tools
   .section-content
     @media (min-width: $desktop)
       padding: 0
@@ -216,7 +216,21 @@ body
 .section-wound, .section-about, .section-visit
   .section-content
     @media (min-width: $desktop)
-      max-width: 80rem  
+      max-width: 80rem
+
+.fa-chain
+  display: inline-block
+  font-family: FontAwesome
+  font-size: 2rem
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+  &:before
+    content: "\f0c1"
+
+  &.fa-chain-big
+    font-size: 3rem
 
 .tool
   margin: 0 0 3rem 0
@@ -230,10 +244,10 @@ body
     font-size: 1.8rem
 
   @media (min-width: $widescreen)
-    @include span(4 of 12 split)  
-    font-size: 1.6rem 
+    @include span(4 of 12 split)
+    font-size: 1.6rem
 
-  &:last-child 
+  &:last-child
     border-bottom: none
 
 .tool-image
@@ -252,8 +266,8 @@ body
   padding: 0 0 3rem 0
   border-bottom: 1px solid $color-type
 
-  &:last-child 
-    border-bottom: none  
+  &:last-child
+    border-bottom: none
 
     @media (min-width: $widescreen)
       padding: 0
@@ -277,12 +291,12 @@ body
     padding: 0 0 6rem 0
 
   @media (min-width: $widescreen)
-    @include span(6 of 12 split)  
+    @include span(6 of 12 split)
     border-bottom: none
-    padding: 0 0 2rem 0    
+    padding: 0 0 2rem 0
 
-  &:last-child 
-    border-bottom: none  
+  &:last-child
+    border-bottom: none
 
   &.show
     .facilitator-description
@@ -299,10 +313,10 @@ body
   overflow: hidden
 
   @media (min-width: $tablet)
-    height: 22rem  
+    height: 22rem
 
   @media (min-width: $desktop)
-    height: 21rem  
+    height: 21rem
 
   @media (min-width: $widescreen)
     height: auto
@@ -316,10 +330,10 @@ body
   @media (min-width: $widescreen)
     display: none
 
-.maps-black 
+.maps-black
   -webkit-filter: grayscale(100%)
   filter: grayscale(100%)
-  pointer-events: none    
+  pointer-events: none
   position: relative
   left: -2rem
 

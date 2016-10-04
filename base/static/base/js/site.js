@@ -42,18 +42,20 @@ var bindEvents = function() {
 	}
 };
 
-scrollToSlug = function() {
+var scrollToSlug = function() {
 	var urlParts = window.location.href.split('/').filter(Boolean);
 
 	if (urlParts.length > 2) {
 		var slug = urlParts.pop();
 		var offset = document.querySelector('#' + slug).getBoundingClientRect().top;
-		document.body.scrollTop = offset;
+		setTimeout(function() {
+			document.body.scrollTop = offset;
+		}, 10);
 	}
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-	scrollToSlug();
 	bindEvents();
 });
 
+scrollToSlug();

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box; }
 
@@ -182,6 +183,18 @@ body {
 @media (min-width: 960px) {
   .section-wound .section-content, .section-about .section-content, .section-visit .section-content {
     max-width: 80rem; } }
+
+.fa-chain {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 2rem;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .fa-chain:before {
+    content: ""; }
+  .fa-chain.fa-chain-big {
+    font-size: 3rem; }
 
 .tool {
   margin: 0 0 3rem 0;

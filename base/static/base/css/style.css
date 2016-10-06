@@ -256,6 +256,20 @@ body {
 .training-description {
   margin: 1rem 0; }
 
+.facilitators-row {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #170c01;
+  margin-bottom: 1rem; }
+  .facilitators-row:last-child {
+    border-bottom: none; }
+  @media (min-width: 768px) {
+    .facilitators-row {
+      margin-bottom: 3rem; } }
+  @media (min-width: 1140px) {
+    .facilitators-row {
+      border-bottom: none; } }
+
 .facilitator {
   margin: 0 0 1rem 0;
   padding: 0 0 3rem 0;
@@ -275,6 +289,9 @@ body {
       padding: 0 0 2rem 0; } }
   .facilitator:last-child {
     border-bottom: none; }
+  @media (min-width: 1140px) {
+    .facilitator.show {
+      padding: 0; } }
   .facilitator.show .facilitator-description {
     height: auto; }
   .facilitator.show .facilitator-toggle {
@@ -284,17 +301,27 @@ body {
   margin: 0 0 1rem 0; }
 
 .facilitator-description {
-  height: 10rem;
+  height: 17rem;
   overflow: hidden; }
   @media (min-width: 768px) {
     .facilitator-description {
-      height: 23rem; } }
+      height: 26.7rem; } }
+  @media (min-width: 960px) {
+    .facilitator-description {
+      height: 20rem; } }
 
 .facilitator-toggle {
   position: absolute;
   right: 2rem;
+  bottom: 0rem;
   z-index: 10;
   text-transform: uppercase; }
+  @media (min-width: 768px) {
+    .facilitator-toggle {
+      bottom: 2rem; } }
+  @media (min-width: 960px) {
+    .facilitator-toggle {
+      bottom: -3rem; } }
 
 .maps-black {
   -webkit-filter: grayscale(100%);

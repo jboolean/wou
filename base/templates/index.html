@@ -102,15 +102,21 @@
 <section class="section section-facilitators" id="facilitators">
 	<h2 class="section-header">FACILITATORS  <a href="{% url 'base:detail' slug='facilitators' %}"><i class="fa fa-chain fa-chain-big"></i></a></h2>
 		<div class="section-content">
-		{% for facilitator in facilitators %}
-		<div class="facilitator" id="{{ facilitator.slug }}">
-			<h3 class="facilitator-name">{{ facilitator.name }}  <a href="{% url 'base:detail' slug=facilitator.slug %}"><i class="fa fa-chain"></i></a></h3>
-			<div class="facilitator-description">{{ facilitator.description|safe }}</div>
-			{% if facilitator.description|length > 400 %}
-			<a href="#" class="facilitator-toggle">read more</a>
+			<div class="facilitators-row">
+			{% for facilitator in facilitators %}
+				<div class="facilitator" id="{{ facilitator.slug }}">
+					<h3 class="facilitator-name">{{ facilitator.name }}  <a href="{% url 'base:detail' slug=facilitator.slug %}"><i class="fa fa-chain"></i></a></h3>
+					<div class="facilitator-description">{{ facilitator.description|safe }}</div>
+					{% if facilitator.description|length > 300 %}
+					<a href="#" class="facilitator-toggle">read more</a>
+					{% endif %}
+				</div>
+			{% if forloop.counter|divisibleby:"2" %}
+			</div>
+			<div class="facilitators-row">
 			{% endif %}
+			{% endfor %}
 		</div>
-		{% endfor %}
 	</div>
 </section>
 

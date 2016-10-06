@@ -288,6 +288,21 @@ body
 .training-description
   margin: 1rem 0
 
+.facilitators-row
+  position: relative
+  overflow: hidden
+  border-bottom: 1px solid $color-type
+  margin-bottom: 1rem
+
+  &:last-child
+    border-bottom: none
+
+  @media (min-width: $tablet)
+    margin-bottom: 3rem
+
+  @media (min-width: $widescreen)
+    border-bottom: none
+
 .facilitator
   margin: 0 0 1rem 0
   padding: 0 0 3rem 0
@@ -307,6 +322,9 @@ body
     border-bottom: none
 
   &.show
+    @media (min-width: $widescreen)
+      padding: 0
+
     .facilitator-description
       height: auto
 
@@ -317,17 +335,27 @@ body
   margin: 0 0 1rem 0
 
 .facilitator-description
-  height: 10rem
+  height: 17rem
   overflow: hidden
 
   @media (min-width: $tablet)
-    height: 23rem
+    height: 26.7rem
+
+  @media (min-width: $desktop)
+    height: 20rem
 
 .facilitator-toggle
   position: absolute
   right: 2rem
+  bottom: 0rem
   z-index: 10
   text-transform: uppercase
+
+  @media (min-width: $tablet)
+    bottom: 2rem
+
+  @media (min-width: $desktop)
+    bottom: -3rem
 
 .maps-black
   -webkit-filter: grayscale(100%)

@@ -259,7 +259,8 @@ body {
 .facilitator {
   margin: 0 0 1rem 0;
   padding: 0 0 3rem 0;
-  border-bottom: 1px solid #170c01; }
+  border-bottom: 1px solid #170c01;
+  position: relative; }
   @media (min-width: 768px) {
     .facilitator {
       margin: 0 0 3rem 0;
@@ -287,22 +288,13 @@ body {
   overflow: hidden; }
   @media (min-width: 768px) {
     .facilitator-description {
-      height: 22rem; } }
-  @media (min-width: 960px) {
-    .facilitator-description {
-      height: 21rem; } }
-  @media (min-width: 1140px) {
-    .facilitator-description {
-      height: auto; } }
+      height: 23rem; } }
 
 .facilitator-toggle {
   position: absolute;
   right: 2rem;
   z-index: 10;
   text-transform: uppercase; }
-  @media (min-width: 1140px) {
-    .facilitator-toggle {
-      display: none; } }
 
 .maps-black {
   -webkit-filter: grayscale(100%);

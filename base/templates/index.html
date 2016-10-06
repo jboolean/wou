@@ -106,7 +106,9 @@
 		<div class="facilitator" id="{{ facilitator.slug }}">
 			<h3 class="facilitator-name">{{ facilitator.name }}  <a href="{% url 'base:detail' slug=facilitator.slug %}"><i class="fa fa-chain"></i></a></h3>
 			<div class="facilitator-description">{{ facilitator.description|safe }}</div>
-			<a href="#" class="facilitator-toggle">show more</a>
+			{% if facilitator.description|length > 400 %}
+			<a href="#" class="facilitator-toggle">read more</a>
+			{% endif %}
 		</div>
 		{% endfor %}
 	</div>

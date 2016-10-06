@@ -196,13 +196,17 @@ body {
   .fa-chain.fa-chain-big {
     font-size: 3rem; }
 
+.tools-row {
+  position: relative;
+  overflow: hidden; }
+
 .tool {
   margin: 0 0 3rem 0;
   padding: 0 0 3rem 0;
   border-bottom: 1px solid #170c01; }
   @media (min-width: 960px) {
     .tool {
-      width: 45.8333333333%;
+      width: 29.1666666667%;
       float: left;
       margin-left: 2.0833333333%;
       margin-right: 2.0833333333%;

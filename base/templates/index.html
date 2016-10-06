@@ -81,8 +81,8 @@
 	<div class="section-content">
 		{% for training in trainings %}
 		<div class="training" id="{{ training.slug }}">
-			<h3 class="training-time">{{ training.date|date:"l, F j, g:iA" }}  <a href="{% url 'base:detail' slug=training.slug %}"><i class="fa fa-chain"></i></a></h3>
-			<span class="training-name">{{ training.name }}</span>
+			<h3 class="training-time">{{ training.name }} <a href="{% url 'base:detail' slug=training.slug %}"><i class="fa fa-chain"></i></a></h3>
+			<span class="training-name">{{ training.date|date:"l, F j, g:iA" }}</span>
 			<br />
 			<span class="training-facilitator">{{ training.facilitators.first.name }}</span>
 			<br />

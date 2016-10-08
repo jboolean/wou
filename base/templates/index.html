@@ -38,13 +38,13 @@
 
 <!-- TOOLS -->
 <section class="section section-tools" id="tools">
-	<h2 class="section-header">TOOLS <a href="{% url 'base:detail' slug='tools' %}"><i class="fa fa-chain fa-chain-big"></i></a></h2>
+	<h2 class="section-header">TOOLS <a href="#tools"><i class="fa fa-chain fa-chain-big"></i></a></h2>
 	<div class="section-content">
 		<div class="tools-row">
 		{% for tool in tools %}
 			<div class="tool" id="{{ tool.slug }}">
 				<img class="tool-image" src="{{ tool.image.url }}" alt="{{ tool.name }}" />
-				<h3 class="tool-name">{{ tool.name }} <a href="{% url 'base:detail' slug=tool.slug %}"><i class="fa fa-chain"></i></a></h3>
+				<h3 class="tool-name">{{ tool.name }} <a href="#{{ tool.slug }}"><i class="fa fa-chain"></i></a></h3>
 
 				<span class="tool-meta">Tool Type: </span>{{ tool.get_type_display }}
 				<br />
@@ -82,11 +82,11 @@
 
 <!-- TRAININGS -->
 <section class="section section-trainings" id="trainings">
-	<h2 class="section-header">TRAININGS  <a href="{% url 'base:detail' slug='trainings' %}"><i class="fa fa-chain fa-chain-big"></i></a></h2>
+	<h2 class="section-header">TRAININGS  <a href="#trainings"><i class="fa fa-chain fa-chain-big"></i></a></h2>
 	<div class="section-content">
 		{% for training in trainings %}
 		<div class="training" id="{{ training.slug }}">
-			<h3 class="training-time">{{ training.name }} <a href="{% url 'base:detail' slug=training.slug %}"><i class="fa fa-chain"></i></a></h3>
+			<h3 class="training-time">{{ training.name }} <a href="#{{ training.slug }}"><i class="fa fa-chain"></i></a></h3>
 			<span class="training-name">{{ training.date|date:"l, F j, g:iA" }}</span>
 			<br />
 			<span class="training-facilitator">{{ training.facilitators.first.name }}</span>
@@ -100,12 +100,12 @@
 
 <!-- FACILITATORS -->
 <section class="section section-facilitators" id="facilitators">
-	<h2 class="section-header">FACILITATORS  <a href="{% url 'base:detail' slug='facilitators' %}"><i class="fa fa-chain fa-chain-big"></i></a></h2>
+	<h2 class="section-header">FACILITATORS  <a href="#facilitators"><i class="fa fa-chain fa-chain-big"></i></a></h2>
 		<div class="section-content">
 			<div class="facilitators-row">
 			{% for facilitator in facilitators %}
 				<div class="facilitator" id="{{ facilitator.slug }}">
-					<h3 class="facilitator-name">{{ facilitator.name }}  <a href="{% url 'base:detail' slug=facilitator.slug %}"><i class="fa fa-chain"></i></a></h3>
+					<h3 class="facilitator-name">{{ facilitator.name }}  <a href="#{{ facilitator.slug }}"><i class="fa fa-chain"></i></a></h3>
 					<div class="facilitator-description">{{ facilitator.description|safe }}</div>
 					{% if facilitator.description|length > 300 %}
 					<a href="#" class="facilitator-toggle">read more</a>
@@ -124,7 +124,7 @@
 	{% if not forloop.first %}
 	<!-- {{ content_block.name|upper }} -->
 	<section class="section section-{{ content_block.slug }}" id="{{ content_block.slug }}">
-		<h2 class="section-header">{{ content_block.name|upper }}  <a href="{% url 'base:detail' slug=content_block.slug %}"><i class="fa fa-chain fa-chain-big"></i></a></h2>
+		<h2 class="section-header">{{ content_block.name|upper }}  <a href="#{{ content_block.slug }}"><i class="fa fa-chain fa-chain-big"></i></a></h2>
 		<div class="section-content">{{ content_block.content|safe }}</div>
 	</section>
 	{% endif %}

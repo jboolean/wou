@@ -18,9 +18,13 @@
 		<li class="navigation-menu-item">
 			<a href="#facilitators">Facilitators</a>
 		</li>
+		{% for content_block in content_blocks %}
+		{% if not forloop.first %}
 		<li class="navigation-menu-item">
-			<a href="#about">About</a>
+			<a href="#{{ content_block.slug }}">{{ content_block.name }}</a>
 		</li>
+		{% endif %}
+		{% endfor %}
 	</ul>
 </nav>
 {% endblock navigation %}

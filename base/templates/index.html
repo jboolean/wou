@@ -1,136 +1,25 @@
 {% extends "base.html" %}
 
-{% load static %}
-
 {% block navigation %}
-<nav class="navigation">
-	<div class="navicon">&#9776;</div>
-	<ul class="navigation-menu">
-		<li class="navigation-menu-item">
-			<a href="#header">Wound</a>
-		</li>
-		<li class="navigation-menu-item">
-			<a href="#tools">Tools</a>
-		</li>
-		<li class="navigation-menu-item">
-			<a href="#trainings">Trainings</a>
-		</li>
-		<li class="navigation-menu-item">
-			<a href="#facilitators">Facilitators</a>
-		</li>
-		{% for content_block in content_blocks %}
-		{% if not forloop.first %}
-		<li class="navigation-menu-item">
-			<a href="#{{ content_block.slug }}">{{ content_block.name }}</a>
-		</li>
-		{% endif %}
-		{% endfor %}
-	</ul>
-</nav>
+{% include 'navigation.html' %}
 {% endblock navigation %}
 
 {% block content %}
-<header id="header">
-	<!-- INTRO -->
-	<section class="section section-{{ content_blocks.first.slug }}" id="{{ content_blocks.first.slug }}">
-		<div class="section-content">
-			{{ content_blocks.first.content|safe }}
-		</div>
-		<img class="header" alt="Wound" src="{% static 'base/images/wound_space.jpg' %}" />
-	</section>
-</header>
+
+{% include 'intro.html' %}
 
 <!-- TOOLS -->
-<section class="section section-tools" id="tools">
-	<h2 class="section-header">TOOLS <a href="#tools"><i class="fa fa-chain fa-chain-big"></i></a></h2>
-	<div class="section-content">
-		<div class="tools-row">
-		{% for tool in tools %}
-			<div class="tool" id="{{ tool.slug }}">
-				<img class="tool-image" src="{{ tool.image.url }}" alt="{{ tool.name }}" />
-				<h3 class="tool-name">{{ tool.name }} <a href="#{{ tool.slug }}"><i class="fa fa-chain"></i></a></h3>
-
-				<span class="tool-meta">Tool Type: </span>{{ tool.get_type_display }}
-				<br />
-
-				<span class="tool-meta">Made by: </span>{{ tool.made_by }}
-				<br />
-
-				<span class="tool-meta">Info: </span>{{ tool.info }}
-				<br />
-
-				<span class="tool-meta">Training:</span>
-				{% if tool.training_set.all %}
-				{% for training in tool.training_set.all %}
-						<a class="tool-training" href="#{{ training.slug }}">{{ training.name }}</a>
-				{% endfor %}
-				{% else %}
-				None at this time
-				{% endif %}
-				<br />
-
-				{% if tool.facilitator_set.all %}
-				{% for facilitator in tool.facilitator_set.all %}
-				<span class="tool-meta">Facilitator: </span>
-				<a class="tool-facilitator" href="#{{ facilitator.slug }}">{{ facilitator.name }}</a>
-				{% endfor %}
-				{% endif %}
-			</div>
-		{% if forloop.counter|divisibleby:"3" %}
-		</div>
-		<div class="tools-row">
-		{% endif %}
-		{% endfor %}
-	</div>
-</section>
+{% include 'tools.html' %}
 
 <!-- TRAININGS -->
 <section class="section section-trainings" id="trainings">
 	<h2 class="section-header">TRAININGS  <a href="#trainings"><i class="fa fa-chain fa-chain-big"></i></a></h2>
-	<div class="section-content">
-		{% for training in trainings %}
-		<div class="training" id="{{ training.slug }}">
-			<h3 class="training-time">{{ training.name }} <a href="#{{ training.slug }}"><i class="fa fa-chain"></i></a></h3>
-			<span class="training-name">{{ training.date|date:"l, F j, g:iA" }}</span>
-			<br />
-			<span class="training-facilitator">{{ training.facilitators.first.name }}</span>
-			<br />
-			<div class="training-description">{{ training.description|safe }}</div>
-			<a class="training-rsvp" href="{{ training.link }}" target="_blank">RSVP</a>
-		</div>
-		{% endfor %}
-	</div>
+	{% include 'trainings.html' %}
 </section>
 
 <!-- FACILITATORS -->
-<section class="section section-facilitators" id="facilitators">
-	<h2 class="section-header">FACILITATORS  <a href="#facilitators"><i class="fa fa-chain fa-chain-big"></i></a></h2>
-		<div class="section-content">
-			<div class="facilitators-row">
-			{% for facilitator in facilitators %}
-				<div class="facilitator" id="{{ facilitator.slug }}">
-					<h3 class="facilitator-name">{{ facilitator.name }}  <a href="#{{ facilitator.slug }}"><i class="fa fa-chain"></i></a></h3>
-					<div class="facilitator-description">{{ facilitator.description|safe }}</div>
-					{% if facilitator.description|length > 300 %}
-					<a href="#" class="facilitator-toggle">read more</a>
-					{% endif %}
-				</div>
-			{% if forloop.counter|divisibleby:"2" %}
-			</div>
-			<div class="facilitators-row">
-			{% endif %}
-			{% endfor %}
-		</div>
-	</div>
-</section>
+{% include 'facilitators.html' %}
 
-{% for content_block in content_blocks %}
-	{% if not forloop.first %}
-	<!-- {{ content_block.name|upper }} -->
-	<section class="section section-{{ content_block.slug }}" id="{{ content_block.slug }}">
-		<h2 class="section-header">{{ content_block.name|upper }}  <a href="#{{ content_block.slug }}"><i class="fa fa-chain fa-chain-big"></i></a></h2>
-		<div class="section-content">{{ content_block.content|safe }}</div>
-	</section>
-	{% endif %}
-{% endfor %}
+{% include 'content-blocks.html' %}
+
 {% endblock content %}

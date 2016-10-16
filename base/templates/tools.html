@@ -1,0 +1,42 @@
+<section class="section section-tools" id="tools">
+	<h2 class="section-header">TOOLS <a href="#tools"><i class="fa fa-chain fa-chain-big"></i></a></h2>
+	<div class="section-content">
+		<div class="tools-row">
+		{% for tool in tools %}
+			<div class="tool" id="{{ tool.slug }}">
+				<img class="tool-image" src="{{ tool.image.url }}" alt="{{ tool.name }}" />
+				<h3 class="tool-name">{{ tool.name }} <a href="#{{ tool.slug }}"><i class="fa fa-chain"></i></a></h3>
+
+				<span class="tool-meta">Tool Type: </span>{{ tool.get_type_display }}
+				<br />
+
+				<span class="tool-meta">Made by: </span>{{ tool.made_by }}
+				<br />
+
+				<span class="tool-meta">Info: </span>{{ tool.info }}
+				<br />
+
+				<span class="tool-meta">Training:</span>
+				{% if tool.training_set.all %}
+				{% for training in tool.training_set.all %}
+						<a class="tool-training" href="#{{ training.slug }}">{{ training.name }}</a>
+				{% endfor %}
+				{% else %}
+				None at this time
+				{% endif %}
+				<br />
+
+				{% if tool.facilitator_set.all %}
+				{% for facilitator in tool.facilitator_set.all %}
+				<span class="tool-meta">Facilitator: </span>
+				<a class="tool-facilitator" href="#{{ facilitator.slug }}">{{ facilitator.name }}</a>
+				{% endfor %}
+				{% endif %}
+			</div>
+		{% if forloop.counter|divisibleby:"3" %}
+		</div>
+		<div class="tools-row">
+		{% endif %}
+		{% endfor %}
+	</div>
+</section>

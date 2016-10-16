@@ -20,18 +20,18 @@ var bindEvents = function() {
 	});
 
 	// scrolls
-	for (i = 0; i < elements.scrollToAnchors.length; i++) {
-		elements.scrollToAnchors[i].addEventListener('click', function(e) {
-			e.preventDefault();
-			elements.mobileMenu.classList.remove('show');
+	// for (i = 0; i < elements.scrollToAnchors.length; i++) {
+	// 	elements.scrollToAnchors[i].addEventListener('click', function(e) {
+	// 		e.preventDefault();
+	// 		elements.mobileMenu.classList.remove('show');
 
-			Velocity(
-				document.querySelector(this.getAttribute('href')),
-				'scroll',
-				{ duration: 300, offset: -40 }
-			);
-		});
-	}
+	// 		Velocity(
+	// 			document.querySelector(this.getAttribute('href')),
+	// 			'scroll',
+	// 			{ duration: 300, offset: -40 }
+	// 		);
+	// 	});
+	// }
 
 	// mobile facilitator show more
 	for (i = 0; i < elements.mobileShowButtons.length; i++) {
@@ -58,4 +58,4 @@ document.addEventListener('DOMContentLoaded', function() {
 	bindEvents();
 });
 
-scrollToSlug();
+// scrollToSlug();

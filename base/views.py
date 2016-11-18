@@ -40,7 +40,7 @@ class PastView(generic.TemplateView):
 
         today = datetime.now().date()
 
-        context['trainings'] = Training.objects.filter(date__lte=today).order_by('-date')
+        context['trainings'] = Training.objects.filter(date__lte=today).order_by('date')
         context['content_blocks'] = ContentBlock.objects.all()
         context['site_url'] = settings.SITE_URL
 

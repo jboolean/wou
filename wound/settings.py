@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'exhibitions.apps.ExhibitionsConfig',
     'base.apps.BaseConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -145,3 +146,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_URL = '/uploads/'
+
+SITE_URL = 'http://127.0.0.1:8000'

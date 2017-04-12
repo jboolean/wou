@@ -1,25 +1,25 @@
-{% extends "base.html" %}
+{% extends "exhibitions/base.html" %}
 
 {% block navigation %}
-{% include 'navigation.html' %}
+{% include 'exhibitions/navigation.html' %}
 {% endblock navigation %}
 
 {% block content %}
 
-{% include 'intro.html' %}
+{% include 'exhibitions/intro.html' %}
 
 <!-- TOOLS -->
-{% include 'tools.html' %}
+{% include 'exhibitions/tools.html' %}
 
 <!-- TRAININGS -->
 <section class="section section-trainings" id="trainings">
 	<h2 class="section-header">TRAININGS  <a href="#trainings"><i class="fa fa-chain fa-chain-big"></i></a></h2>
-	{% include 'trainings.html' %}
+	{% include 'exhibitions/trainings.html' %}
 </section>
 
 <!-- FACILITATORS -->
-{% include 'facilitators.html' %}
+{% include 'exhibitions/facilitators.html' %}
 
-{% include 'content-blocks.html' %}
+{% include 'exhibitions/content-blocks.html' %}
 
 {% endblock content %}

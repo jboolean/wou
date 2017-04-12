@@ -1,0 +1,29 @@
+<nav class="navigation">
+	<div class="navicon">&#9776;</div>
+	<ul class="navigation-menu">
+		<li class="navigation-menu-item">
+			<a href="{% url 'exhibitions:detail' exhibition.slug %}#header">Wound</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="{% url 'exhibitions:detail' exhibition.slug %}#tools">Tools</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="{% url 'exhibitions:detail' exhibition.slug %}#trainings">Trainings</a>
+		</li>
+
+		<li class="navigation-menu-item">
+			<a href="{% url 'exhibitions:past' exhibition.slug %}">Past Trainings</a>
+		</li>
+
+		<li class="navigation-menu-item">
+			<a href="{% url 'exhibitions:detail' exhibition.slug %}#facilitators">Facilitators</a>
+		</li>
+		{% for content_block in content_blocks %}
+		{% if not forloop.first %}
+		<li class="navigation-menu-item">
+			<a href="{% url 'exhibitions:detail' exhibition.slug %}#{{ content_block.slug }}">{{ content_block.name }}</a>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+</nav>

@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.db.models import *
 from tinymce.models import HTMLField
+from taggit.managers import TaggableManager
 
 
 class Base(Model):
@@ -65,3 +66,12 @@ class Training(Base):
     tools = ManyToManyField(Tool, blank=True)
     description = HTMLField(null=True, blank=True)
     link = URLField()
+
+
+class Reading(Base):
+    class Meta:
+        ordering = ['name']
+
+    pdf = FileField(upload_to='texts', blank=True, null=True)
+    tags = TaggableManager()
+

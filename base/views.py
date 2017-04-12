@@ -4,13 +4,15 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
-
+from .models import Practice
 
 class IndexView(generic.TemplateView):
     template_name = 'base/index.html'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
+
+        context['practices'] = Practice.objects.all()
 
         if 'slug' in self.kwargs:
             context['slug'] = self.kwargs['slug']

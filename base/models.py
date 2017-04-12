@@ -42,6 +42,7 @@ class Tool(Base):
     made_by = CharField(max_length=200, null=True)
     info = CharField(max_length=255, null=True)
     image = ImageField(null=True, upload_to='tools')
+    pdf = FileField(upload_to='texts', blank=True, null=True)
     type = CharField(
         max_length=8,
         choices=TOOL_CHOICES,
@@ -74,4 +75,17 @@ class Reading(Base):
 
     pdf = FileField(upload_to='texts', blank=True, null=True)
     tags = TaggableManager()
+
+
+class Practice(Base):
+    class Meta:
+        ordering = ['name']
+
+    description = HTMLField(null=True, blank=True)
+    tools = ManyToManyField(Tool, blank=True)
+    trainings = ManyToManyField(Training, blank=True)
+    readings = ManyToManyField(Reading, blank=True)
+    link = URLField()
+    tags = TaggableManager()
+
 

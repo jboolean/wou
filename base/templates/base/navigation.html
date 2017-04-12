@@ -5,7 +5,10 @@
 			<a href="{% url 'base:index' %}#header">Study</a>
 		</li>
 		<li class="navigation-menu-item">
-			<a href="{% url 'base:index' %}#">A</a>
+			<a href="{% url 'base:index' %}#">Practice</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="{% url 'base:index' %}#">Read</a>
 		</li>
 		{% for content_block in content_blocks %}
 		{% if not forloop.first %}

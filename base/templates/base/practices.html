@@ -1,0 +1,45 @@
+<section class="section section-practices" id="practices">
+	<h2 class="section-header">PRACTICES <a href="#practices"><i class="fa fa-chain fa-chain-big"></i></a></h2>
+	<div class="section-content">
+		<div class="practices-row">
+		{% for practice in practices %}
+			<div class="practice" id="{{ practice.slug }}">
+				<h3 class="practice-name">{{ practice.name }} <a href="#{{ practice.slug }}"><i class="fa fa-chain"></i></a></h3>
+
+				{% if practice.tags.all %}
+				{% for tag in practice.tags.all %}
+				<a class="practice-tag" href="{{ tag.slug }}">{{ tag.name }}</a>
+				{% endfor %}
+				{% endif %}
+
+				<span class="practice-meta">Description: </span>{{ practice.description|safe }}
+				<br />
+
+				<span class="practice-meta">Tool: </span>{{ practice.tool_set.all.first }}
+				<br />
+
+				<span class="practice-meta">Website: </span>{{ practice.link }}
+				<br />
+
+				{% if practice.trainings_set.all %}
+				<span class="practice-meta">Training:</span>
+				{% for training in practice.training_set.all %}
+						<a class="practice-training" href="#{{ training.slug }}">{{ training.name }}</a>
+				{% endfor %}
+				<br />
+				{% endif %}
+
+				{% if practice.readings_set.all %}
+				<span class="practice-meta">Readings: </span>
+				{% for reading in practice.readings_set.all %}
+				<a class="practice-reading" href="{{ MEDIA_URL }}{{ reading.pdf }}">{{ reading.name }}</a>
+				{% endfor %}
+				{% endif %}
+			</div>
+		{% if forloop.counter|divisibleby:"3" %}
+		</div>
+		<div class="practices-row">
+		{% endif %}
+		{% endfor %}
+	</div>
+</section>

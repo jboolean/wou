@@ -5,18 +5,48 @@
 {% endblock navigation %}
 
 {% block content %}
-<h1>Readings</h1>
+<section class="section section--detail section--{{tag.slug}}">
+	<h2 class="section-header">
+		{{tag.name|upper}}
+		<a href="{% url 'base:tag-detail' slug=tag.slug %}">
+			<i class="fa fa-chain fa-chain-big"></i>
+		</a>
+	</h2>
+	<div class="section-content">
+		<div class="item--detail">
+			<div class="item__meta">
+				<span class="item__key">Contributed by: </span>
+				<span class="item__value">
+					{% for practice in practices %}
+					<a class="item__practice" href="{% url 'base:practice-detail' practice.slug %}">
+						{{ practice.name }}
+					</a>
+					{% if forloop.last %}{% else %}, {% endif %}
+					{% endfor %}
+				</span>
+			</div>
 
-Contributed by:
-{% for practice in practices %}
-<a href="{% url 'base:practice-detail' practice.slug %}">
-	{{ practice.name }}
-</a>
-{% if forloop.last %}{% else %}, {% endif %}
-{% endfor %}
-
-{% for reading in readings %}
-<a href="/uploads/{{MEDIA_URL}}{{reading.pdf}}">{{ reading.name }}</a>
-{% endfor %}
-
+			<ul class="item__list">
+			{% for reading in readings %}
+				<li>
+					<span class="reading__name">
+						<a href="/uploads/{{MEDIA_URL}}{{reading.pdf}}">{{ reading.name }}</a>
+					</span>
+					<span class="reading__pdf">
+						<a href="/uploads/{{MEDIA_URL}}{{reading.pdf}}">PDF</a>
+					</span>
+					<span class="reading__tags">
+					{% for tag in reading.tags.all %}
+						<a class="reading__tag" href="{% url 'base:tag-detail' tag.slug %}">
+							({{ tag.name }})
+						</a>
+						{% if forloop.last %}{% else %}, {% endif %}
+					{% endfor %}
+					</span>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+</section>
 {% endblock content %}

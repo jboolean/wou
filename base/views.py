@@ -33,6 +33,7 @@ class TagDetailView(generic.TemplateView):
         readingsQuerySet = Reading.objects.filter(tags__slug__in=[tag.slug])
         context['readings'] = readingsQuerySet
         context['practices'] = Practice.objects.filter(readings__in=readingsQuerySet)
+        context['tag'] = tag
 
         return context
 

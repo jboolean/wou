@@ -2,13 +2,10 @@
 	<div class="navicon">&#9776;</div>
 	<ul class="navigation-menu">
 		<li class="navigation-menu-item">
-			<a href="{% url 'base:index' %}#header">Study</a>
+			<a href="{% url 'base:index' %}">Study</a>
 		</li>
 		<li class="navigation-menu-item">
-			<a href="{% url 'base:index' %}#">Practice</a>
-		</li>
-		<li class="navigation-menu-item">
-			<a href="{% url 'base:index' %}#">Read</a>
+			<a href="{% url 'base:index' %}#practices">Practice</a>
 		</li>
 		{% for content_block in content_blocks %}
 		{% if not forloop.first %}

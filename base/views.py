@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from taggit.models import Tag
-from .models import Practice, Reading
+from .models import Practice, Reading, ContentBlock
 
 class IndexView(generic.TemplateView):
     template_name = 'base/index.html'
@@ -14,6 +14,7 @@ class IndexView(generic.TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
 
         context['practices'] = Practice.objects.all()
+        context['content_blocks'] = ContentBlock.objects.filter(is_on_main_site=True)
 
         if 'slug' in self.kwargs:
             context['slug'] = self.kwargs['slug']

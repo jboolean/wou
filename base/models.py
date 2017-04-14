@@ -44,6 +44,7 @@ class ContentBlock(Base):
 
     content = HTMLField()
     position = PositiveSmallIntegerField(null=True)
+    is_on_main_site = BooleanField(default=True)
 
 
 class Tool(Base):

@@ -39,8 +39,8 @@ class PageAdmin(FlatPageAdmin):
 class ContentBlockAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     readonly_fields = ('url',)
-    list_display = ('name', 'position', 'url')
-    list_editable = ('position',)
+    list_display = ('name', 'position', 'url', 'is_on_main_site')
+    list_editable = ('position', 'is_on_main_site')
 
 
 class FacilitatorAdmin(admin.ModelAdmin):

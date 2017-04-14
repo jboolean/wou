@@ -37,10 +37,7 @@
 					</span>
 					<span class="reading__tags">
 					{% for tag in reading.tags.all %}
-						<a class="reading__tag" href="{% url 'base:tag-detail' tag.slug %}">
-							({{ tag.name }})
-						</a>
-						{% if forloop.last %}{% else %}, {% endif %}
+						(<a class="reading__tag" href="{% url 'base:tag-detail' tag.slug %}">{{ tag.name }}</a>)
 					{% endfor %}
 					</span>
 				</li>

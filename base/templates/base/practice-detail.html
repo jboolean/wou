@@ -17,67 +17,56 @@
 	<div class="section-content">
 		<div class="item item--detail">
 			{% if practice.primary_image %}
-			<img class="item__primary-image" src="/{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
-			{% endif %}
-
-			{% if practice.group %}
-			<div class="item__meta">
-				<span class="item__value">{{ practice.group.name }}</span>
-			</div>
+			<img class="item__primary-image" src="/uploads/{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
 			{% endif %}
 
 			{% if practice.tags %}
 			<div class="item__meta">
-				<span class="item__value">
+				<p class="item__tags">
 				{% for tag in practice.tags.all %}
-					<a class="practice-tag" href="{% url 'base:tag-detail' tag.slug %}">
-						{{ tag.name }}
-					</a>
+					(<a class="tag" href="{% url 'base:tag-detail' tag.slug %}">{{ tag.name }}</a>)
 				{% endfor %}
-				</span>
+				</p>
 			</div>
 			{% endif %}
 
 			{% if practice.description %}
 			<div class="item__meta">
-				<span class="item__key">Description: </span>
 				<span class="item__value">{{ practice.description|safe }}</span>
 			</div>
 			{% endif %}
 
-			{% if practice.tool_set %}
+			{% if practice.tools %}
 			<div class="item__meta">
 				<span class="item__key">Tool: </span>
-				<span class="item__value">{{ practice.tool_set.all.first }}</span>
+				<span class="item__value">{{ practice.tools.all.first }}</span>
+			</div>
+			{% endif %}
+
+			{% if practice.group %}
+			<div class="item__meta">
+				<span class="item__key">By: </span>
+				<span class="item__value">{{ practice.group.name }}</span>
 			</div>
 			{% endif %}
 
 			{% if practice.link %}
 			<div class="item__meta">
 				<span class="item__key">Website: </span>
-				<span class="item__value">{{ practice.link }}</span>
-			</div>
-			{% endif %}
-
-			{% if practice.trainings_set %}
-			<div class="item__meta">
-				<span class="item__key">Upcoming Training: </span>
 				<span class="item__value">
-				{% for training in practice.training_set.all %}
-					<a class="practice-training" href="#{{ training.slug }}">
-						{{ training.name }}
+					<a href="{{ practice.link }}" target="_blank">
+						{{ practice.link }}
 					</a>
-				{% endfor %}
 				</span>
 			</div>
 			{% endif %}
 
-			{% if practice.readings_set %}
+			{% if practice.readings %}
 			<div class="item__meta">
 				<span class="item__key">Readings: </span>
 				<span class="item__value">
-				{% for reading in practice.readings_set.all %}
-					<a class="practice-reading" href="{{ MEDIA_URL }}{{ reading.pdf }}">
+				{% for reading in practice.readings.all %}
+					<a class="practice-reading" href="/uploads/{{ MEDIA_URL }}{{ reading.pdf }}">
 						{{ reading.name }}
 					</a>
 				{% endfor %}

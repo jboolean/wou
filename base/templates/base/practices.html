@@ -8,7 +8,7 @@
 
 				{% if practice.tags.all %}
 				{% for tag in practice.tags.all %}
-				<a class="practice-tag" href="{{ tag.slug }}">{{ tag.name }}</a>
+				<a class="practice-tag" href="{% url 'base:readings-tag' tag.slug %}">{{ tag.name }}</a>
 				{% endfor %}
 				{% endif %}
 

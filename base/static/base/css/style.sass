@@ -181,8 +181,12 @@ body
 .section
   margin: 0 0 5rem 0
 
+.section--detail
+  margin: 6rem 0 0 0
+
 .section-header
-  margin: 0 0 5rem 0
+  margin: 0 0 2rem 0
+  padding: 0 2rem
   text-align: center
   background-color: $color-background
   color: $color-type
@@ -203,17 +207,12 @@ body
   @media (min-width: $tablet)
     padding: 0 4rem
 
-.section-tools
-  .section-content
-    @media (min-width: $desktop)
-      padding: 0
-
-.section-wound
+.section-intro
   .section-content
     padding-top: 10rem
     padding-bottom: 5rem
 
-.section-wound, .section-about, .section-visit
+.section-intro, .section-about, .section-visit
   .section-content
     @media (min-width: $desktop)
       max-width: 80rem
@@ -235,11 +234,7 @@ body
   &.fa-chain-big
     font-size: 3rem
 
-.tools-row
-  position: relative
-  overflow: hidden
-
-.tool
+.item
   margin: 0 0 3rem 0
   padding: 0 0 3rem 0
   border-bottom: 1px solid $color-type
@@ -257,18 +252,33 @@ body
   &:last-child
     border-bottom: none
 
-.tool-image
+  &.item--detail
+    margin: 0
+    padding: 0
+    width: 100%
+
+.item__image
   width: 100%
   height: 25rem
   object-fit: cover
 
-.tool-name
+.item__primary-image
+  width: 100%
+  margin: 0 0 1.5rem 0
+
+.item__name
   margin: 0
 
-.tool-meta
+.item__meta
+  margin: 0 0 0.5rem
+
+.item__key
   font-weight: bold
 
-.training
+.item__value
+  display: inline
+
+.event
   margin: 0 0 3rem 0
   padding: 0 0 3rem 0
   border-bottom: 1px solid $color-type
@@ -279,19 +289,19 @@ body
     @media (min-width: $widescreen)
       padding: 0
 
-.training-time
+.event__time
   margin: 0
 
-.training-name
+.event__name
   margin: 0
 
-.training-facilitator
+.event__text
   margin: 0
 
-.training-description
+.event__description
   margin: 1rem 0
 
-.facilitators-row
+.section__row--texts
   position: relative
   overflow: hidden
   border-bottom: 1px solid $color-type
@@ -306,7 +316,7 @@ body
   @media (min-width: $widescreen)
     border-bottom: none
 
-.facilitator
+.item--text
   margin: 0 0 1rem 0
   padding: 0 0 3rem 0
   border-bottom: 1px solid $color-type
@@ -328,51 +338,46 @@ body
     @media (min-width: $widescreen)
       padding: 0
 
-    .facilitator-description
+    .item__description
       height: auto
 
-    .facilitator-toggle
+    .item__toggle
       display: none
 
-.facilitator-name
-  margin: 0 0 1rem 0
+  .item__name
+    margin: 0 0 1rem 0
 
-.facilitator-description
-  height: 17rem
-  overflow: hidden
+  .item__description
+    height: 17rem
+    overflow: hidden
 
-  @media (min-width: $tablet)
-    height: 26.7rem
-
-  @media (min-width: $desktop)
-    height: 19.5rem
-
-.facilitator-toggle
-  position: absolute
-  right: 2rem
-  bottom: 0rem
-  z-index: 10
-  text-transform: uppercase
-
-  @media (min-width: $tablet)
-    bottom: 2rem
-
-  @media (min-width: $desktop)
-    bottom: 0rem
-
-  @media (min-width: $widescreen)
-    bottom: -3rem
-
-.maps-black
-  -webkit-filter: grayscale(100%)
-  filter: grayscale(100%)
-  pointer-events: none
-  position: relative
-  left: -2rem
-
-  @media (min-width: $tablet)
-    left: 0
-
-  iframe
     @media (min-width: $tablet)
-      width: 100%
+      height: 26.7rem
+
+    @media (min-width: $desktop)
+      height: 19.5rem
+
+  .item__toggle
+    position: absolute
+    right: 2rem
+    bottom: 0rem
+    z-index: 10
+    text-transform: uppercase
+
+    @media (min-width: $tablet)
+      bottom: 2rem
+
+    @media (min-width: $desktop)
+      bottom: 0rem
+
+    @media (min-width: $widescreen)
+      bottom: -3rem
+
+.gallery
+  margin: 0
+
+.gallery__item
+  margin: 0 0 3rem
+
+.gallery__image
+  width: 100%

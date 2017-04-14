@@ -15,8 +15,75 @@
 		</a>
 	</h2>
 	<div class="section-content">
-		<div class="item--detail">
-		{% include 'base/practice.html' %}
+		<div class="item item--detail">
+			{% if practice.primary_image %}
+			<img class="item__primary-image" src="/{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
+			{% endif %}
+
+			{% if practice.group %}
+			<div class="item__meta">
+				<span class="item__value">{{ practice.group.name }}</span>
+			</div>
+			{% endif %}
+
+			{% if practice.tags %}
+			<div class="item__meta">
+				<span class="item__value">
+				{% for tag in practice.tags.all %}
+					<a class="practice-tag" href="{% url 'base:tag-detail' tag.slug %}">
+						{{ tag.name }}
+					</a>
+				{% endfor %}
+				</span>
+			</div>
+			{% endif %}
+
+			{% if practice.description %}
+			<div class="item__meta">
+				<span class="item__key">Description: </span>
+				<span class="item__value">{{ practice.description|safe }}</span>
+			</div>
+			{% endif %}
+
+			{% if practice.tool_set %}
+			<div class="item__meta">
+				<span class="item__key">Tool: </span>
+				<span class="item__value">{{ practice.tool_set.all.first }}</span>
+			</div>
+			{% endif %}
+
+			{% if practice.link %}
+			<div class="item__meta">
+				<span class="item__key">Website: </span>
+				<span class="item__value">{{ practice.link }}</span>
+			</div>
+			{% endif %}
+
+			{% if practice.trainings_set %}
+			<div class="item__meta">
+				<span class="item__key">Upcoming Training: </span>
+				<span class="item__value">
+				{% for training in practice.training_set.all %}
+					<a class="practice-training" href="#{{ training.slug }}">
+						{{ training.name }}
+					</a>
+				{% endfor %}
+				</span>
+			</div>
+			{% endif %}
+
+			{% if practice.readings_set %}
+			<div class="item__meta">
+				<span class="item__key">Readings: </span>
+				<span class="item__value">
+				{% for reading in practice.readings_set.all %}
+					<a class="practice-reading" href="{{ MEDIA_URL }}{{ reading.pdf }}">
+						{{ reading.name }}
+					</a>
+				{% endfor %}
+				</span>
+			</div>
+			{% endif %}
 		</div>
 	</div>
 </section>

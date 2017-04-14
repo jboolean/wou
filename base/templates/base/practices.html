@@ -3,7 +3,6 @@
 	<div class="section-content">
 		<div class="practices-row">
 		{% for practice in practices %}
-			{% include 'base/practice.html' %}
 		{% if forloop.counter|divisibleby:"3" %}
 		</div>
 		<div class="practices-row">

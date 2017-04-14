@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.conf import settings
 from django.db.models import *
+from django.utils.html import format_html
 from tinymce.models import HTMLField
 from taggit.managers import TaggableManager
 
@@ -20,6 +21,21 @@ class Base(Model):
 
     def __str__(self):
         return self.name
+
+
+class BaseImage(Model):
+    class Meta:
+        abstract = True
+
+    image = ImageField(upload_to='images', verbose_name='Image')
+    order = PositiveSmallIntegerField(default=0)
+    is_primary = BooleanField(default=False)
+    created = DateTimeField(auto_now_add=True, editable=False)
+    updated = DateTimeField(auto_now=True, editable=False)
+
+    @property
+    def image_tag(self):
+        return format_html('<img src="/static/uploads/%s" height="100" />' % self.image)
 
 
 class ContentBlock(Base):
@@ -77,10 +93,17 @@ class Reading(Base):
     tags = TaggableManager()
 
 
+class Group(Base):
+    class Meta:
+        ordering = ['name']
+
+    pass
+
 class Practice(Base):
     class Meta:
         ordering = ['name']
 
+    group = ForeignKey(Group)
     description = HTMLField(null=True, blank=True)
     tools = ManyToManyField(Tool, blank=True)
     trainings = ManyToManyField(Training, blank=True)
@@ -88,4 +111,13 @@ class Practice(Base):
     link = URLField()
     tags = TaggableManager()
 
+    @property
+    def primary_image(self):
+        qs = self.practiceimage_set.filter(is_primary=1)
+        if len(qs) > 0:
+            return qs[0]
+        return None
 
+
+class PracticeImage(BaseImage):
+    practice = ForeignKey('Practice')

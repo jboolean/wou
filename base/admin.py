@@ -5,11 +5,23 @@ from tinymce.widgets import TinyMCE
 from .models import (
 	ContentBlock,
 	Facilitator,
+    Group,
     Practice,
+    PracticeImage,
     Reading,
 	Tool,
 	Training
 )
+
+
+class PracticeImageInline(admin.TabularInline):
+    model = PracticeImage
+    verbose_name = 'Practice Image'
+    verbose_name_plural = 'Practice Images'
+    fields = ('image', 'image_tag', 'order', 'is_primary')
+    readonly_fields = ('image_tag',)
+    extra = 1
+
 
 class PageForm(FlatpageForm):
 	class Meta:
@@ -56,6 +68,7 @@ class ReadingAdmin(admin.ModelAdmin):
 
 class PracticeAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+    inlines = [ PracticeImageInline, ]
 
 
 admin.site.unregister(FlatPage)
@@ -66,3 +79,5 @@ admin.site.register(Tool, ToolAdmin)
 admin.site.register(Training, TrainingAdmin)
 admin.site.register(Reading, ReadingAdmin)
 admin.site.register(Practice, PracticeAdmin)
+admin.site.register(PracticeImage)
+admin.site.register(Group)

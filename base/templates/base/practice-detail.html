@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+
+{% load static %}
+
+{% block navigation %}
+{% include 'base/navigation.html' %}
+{% endblock navigation %}
+
+{% block content %}
+<section class="section section--detail section--{{practice.slug}}">
+	<h2 class="section-header">
+		{{practice.name|upper}}
+		<a href="{% url 'base:practice-detail' slug=practice.slug %}">
+			<i class="fa fa-chain fa-chain-big"></i>
+		</a>
+	</h2>
+	<div class="section-content">
+		<div class="item--detail">
+		{% include 'base/practice.html' %}
+		</div>
+	</div>
+</section>
+{% endblock content %}

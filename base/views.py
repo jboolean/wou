@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
+from taggit.models import Tag
 from .models import Practice, Reading
 
 class IndexView(generic.TemplateView):
@@ -20,12 +21,22 @@ class IndexView(generic.TemplateView):
         return context
 
 
-class ReadingDetailView(generic.TemplateView):
-    template_name = 'base/readings.html'
+class TagDetailView(generic.TemplateView):
+    template_name = 'base/tag-detail.html'
+    model = Tag
 
     def get_context_data(self, **kwargs):
-        context = super(ReadingDetailView, self).get_context_data(**kwargs)
+        context = super(TagDetailView, self).get_context_data(**kwargs)
 
-        context['readings'] = Reading.objects.filter(tags__slug__in=[self.kwargs['slug']])
+        tag = get_object_or_404(Tag, slug=self.kwargs['slug'])
+
+        readingsQuerySet = Reading.objects.filter(tags__slug__in=[tag.slug])
+        context['readings'] = readingsQuerySet
+        context['practices'] = Practice.objects.filter(readings__in=readingsQuerySet)
 
         return context
+
+
+class PracticeDetailView(generic.DetailView):
+    template_name = 'base/practice-detail.html'
+    model = Practice

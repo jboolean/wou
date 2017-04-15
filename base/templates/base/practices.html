@@ -1,18 +1,20 @@
 <section class="section section-practices" id="practices">
 	<h2 class="section-header">PRACTICES <a href="#practices"><i class="fa fa-chain fa-chain-big"></i></a></h2>
 	<div class="section-content">
-		<div class="practices-row">
+		<div class="section__row">
 		{% for practice in practices %}
-			{% if practice.primary_image %}
-			<img class="practice__primary-image" src="/uploads/{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
-			{% endif %}
+			<div class="item">
+				{% if practice.primary_image %}
+				<img class="practice__primary-image" src="/uploads/{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
+				{% endif %}
 
-			<a href="{% url 'base:practice-detail' practice.slug %}">
-				{{practice.name}}
-			</a>
+				<a href="{% url 'base:practice-detail' practice.slug %}">
+					{{practice.name}}
+				</a>
+			</div>
 		{% if forloop.counter|divisibleby:"3" %}
 		</div>
-		<div class="practices-row">
+		<div class="section__row">
 		{% endif %}
 		{% endfor %}
 	</div>

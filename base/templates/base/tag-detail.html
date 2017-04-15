@@ -18,9 +18,7 @@
 				<span class="item__key">Contributed by: </span>
 				<span class="item__value">
 					{% for practice in practices %}
-					<a class="item__practice" href="{% url 'base:practice-detail' practice.slug %}">
-						{{ practice.group.name }}
-					</a>
+					<a class="item__practice" href="{% url 'base:practice-detail' practice.slug %}">{{ practice.group.name }}</a>
 					{% if forloop.last %}{% else %}, {% endif %}
 					{% endfor %}
 				</span>
@@ -31,9 +29,6 @@
 				<li>
 					<span class="reading__name">
 						<a href="/uploads/{{MEDIA_URL}}{{reading.pdf}}">{{ reading.name }}</a>
-					</span>
-					<span class="reading__pdf">
-						<a href="/uploads/{{MEDIA_URL}}{{reading.pdf}}">PDF</a>
 					</span>
 					<span class="reading__tags">
 					{% for tag in reading.tags.all %}

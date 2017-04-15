@@ -66,10 +66,6 @@ body
     font-size: 2.3rem
     line-height: 1.6
 
-  @media (min-width: $widescreen)
-    font-size: 2.1rem
-    line-height: 1.35
-
 .navigation
   position: fixed
   z-index: 2
@@ -249,6 +245,9 @@ body
   @media (min-width: $tablet-wide)
     margin: 12rem 0
 
+  @media (min-width: $desktop)
+    margin: 16rem 0
+
 .item
   margin: 0 0 3rem 0
   padding: 0 0 3rem 0
@@ -332,6 +331,33 @@ body
   @media (min-width: $widescreen)
     border-bottom: none
 
+.section__row
+  position: relative
+  overflow: hidden
+
+.item
+  margin: 0 0 3rem 0
+  padding: 0 0 3rem 0
+  border-bottom: 1px solid $color-type
+
+  @media (min-width: $desktop)
+    @include span(4 of 12 split)
+    border-bottom: none
+    padding: 0
+    font-size: 1.8rem
+
+  @media (min-width: $widescreen)
+    @include span(4 of 12 split)
+    font-size: 1.6rem
+
+  &:last-child
+    border-bottom: none
+
+  &.item--detail
+    margin: 0
+    padding: 0
+    width: 100%
+
 .item--text
   margin: 0 0 1rem 0
   padding: 0 0 3rem 0
@@ -412,11 +438,26 @@ body
 .item__list
   margin: 6rem 0 0 0
 
+  li
+    @media (min-width: $tablet)
+      clear: both
+
 .reading__name,
-.reading__pdf,
 .reading__tags
   display: block
 
-.reading__pdf,
+  @media (min-width: $tablet)
+    float: left
+
 .reading__tags
   margin: 0 0 0 4rem
+
+.reading__name
+  @media (min-width: $tablet)
+    width: 30%
+
+.reading__tags
+  @media (min-width: $tablet)
+    width: 50%
+
+.reading__tag

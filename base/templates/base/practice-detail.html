@@ -17,7 +17,7 @@
 	<div class="section-content">
 		<div class="item item--detail">
 			{% if practice.primary_image %}
-			<img class="item__primary-image" src="/uploads/{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
+			<img class="item__primary-image" src="{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
 			{% endif %}
 
 			{% if practice.tags %}

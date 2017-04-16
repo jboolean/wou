@@ -5,7 +5,7 @@
 		{% for practice in practices %}
 			<div class="item">
 				{% if practice.primary_image %}
-				<img class="practice__primary-image" src="/uploads/{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
+				<img class="practice__primary-image" src="{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
 				{% endif %}
 
 				<a href="{% url 'base:practice-detail' practice.slug %}">

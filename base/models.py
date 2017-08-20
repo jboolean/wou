@@ -1,11 +1,13 @@
 from __future__ import unicode_literals
 from django.conf import settings
 from django.db.models import *
+from django.utils.encoding import python_2_unicode_compatible
 from django.utils.html import format_html
 from tinymce.models import HTMLField
 from taggit.managers import TaggableManager
 
 
+@python_2_unicode_compatible
 class Base(Model):
     class Meta:
         abstract = True
@@ -99,6 +101,7 @@ class Contributor(Base):
         ordering = ['name']
 
     pass
+
 
 class Practice(Base):
     class Meta:

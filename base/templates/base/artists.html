@@ -1,0 +1,21 @@
+<section class="section section-artists" id="artists">
+  <h2 class="section-header">ARTISTS <a href="#artists"><i class="fa fa-chain fa-chain-big"></i></a></h2>
+  <div class="section-content">
+    <div class="section__row">
+    {% for contributor in contributors %}
+      <div class="item">
+        <a href="{% url 'base:contributor-detail' contributor.slug %}">
+          {{contributor.name}}
+        </a>
+        <div class="contributor-bio">{{ contributor.bio|safe }}</div>
+        {% if contributor.bio|length > 300 %}
+        <a href="#" class="contributor-toggle">read more</a>
+        {% endif %}
+      </div>
+    {% if forloop.counter|divisibleby:"2" %}
+    </div>
+    <div class="section__row">
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>

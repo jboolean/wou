@@ -3,7 +3,7 @@
   box-sizing: border-box; }
 
 p {
-  margin: 0 0 4rem 0; }
+  margin: 0 0 2rem 0; }
 
 a {
   text-decoration: underline;
@@ -38,19 +38,19 @@ body {
     body {
       line-height: 1.7;
       font-size: 2.5rem; } }
-  @media (min-width: 960px) {
+  @media (min-width: 768px) {
     body {
-      font-size: 2.3rem;
-      line-height: 1.6; } }
+      font-size: 1.5rem;
+      line-height: 1.5; } }
 
 .navigation {
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   top: 0;
   right: 0;
   padding: 0;
   width: 100%; }
-  @media (min-width: 960px) {
+  @media (min-width: 768px) {
     .navigation {
       background-color: #f4f1f1; } }
   .navigation.show {
@@ -78,7 +78,7 @@ body {
   transition: opacity 0.25s ease-in-out;
   -moz-transition: opacity 0.25s ease-in-out;
   -webkit-transition: opacity 0.25s ease-in-out; }
-  @media (min-width: 960px) {
+  @media (min-width: 768px) {
     .navigation-menu {
       text-align: center;
       opacity: 1;
@@ -88,7 +88,7 @@ body {
 .navigation-menu-item {
   width: 100%;
   margin: 0 0 0.5rem 0; }
-  @media (min-width: 960px) {
+  @media (min-width: 768px) {
     .navigation-menu-item {
       display: inline-block;
       width: auto;
@@ -101,7 +101,7 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold; }
-    @media (min-width: 960px) {
+    @media (min-width: 768px) {
       .navigation-menu-item a {
         display: block;
         padding: 0.5rem 1.8rem;
@@ -119,12 +119,8 @@ body {
   background-color: rgba(244, 241, 241, 0.95); }
   @media (min-width: 768px) {
     .navicon {
-      font-size: 5rem;
-      padding: 0.3rem 1.5rem; } }
-  @media (min-width: 960px) {
-    .navicon {
       display: none; } }
-  @media (min-width: 960px) {
+  @media (min-width: 768px) {
     .navicon:hover {
       cursor: pointer; } }
 
@@ -159,9 +155,6 @@ body {
   font-size: 3rem;
   letter-spacing: 0.1rem; }
   @media (min-width: 768px) {
-    .section-header {
-      font-size: 5rem; } }
-  @media (min-width: 1140px) {
     .section-header {
       font-size: 4rem; } }
 
@@ -257,10 +250,7 @@ body {
   margin: 0; }
 
 .item__meta {
-  margin: 0 0 0.5rem; }
-  @media (min-width: 768px) {
-    .item__meta {
-      margin: 0 0 0 3rem; } }
+  margin: 0 0 2rem; }
 
 .item__key {
   font-weight: bold; }
@@ -389,13 +379,21 @@ body {
         bottom: -3rem; } }
 
 .gallery {
-  margin: 0; }
+  margin: 0 0 3rem; }
 
 .gallery__item {
   margin: 0 0 3rem; }
+  @media (min-width: 768px) {
+    .gallery__item {
+      margin: 0;
+      width: 48%;
+      height: 25rem;
+      display: inline-block; } }
 
 .gallery__image {
-  width: 100%; }
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
 
 .practice__primary-image {
   width: 100%;

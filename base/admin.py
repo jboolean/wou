@@ -8,6 +8,7 @@ from .models import (
 	Facilitator,
     Practice,
     PracticeImage,
+    PracticePdf,
     Reading,
 	Tool,
 	Training
@@ -20,6 +21,14 @@ class PracticeImageInline(admin.TabularInline):
     verbose_name_plural = 'Practice Images'
     fields = ('image', 'image_tag', 'order', 'is_primary')
     readonly_fields = ('image_tag',)
+    extra = 1
+
+
+class PracticePdfInline(admin.TabularInline):
+    model = PracticePdf
+    verbose_name = 'Practice PDF'
+    verbose_name_plural = 'Practice PDFs'
+    fields = ('pdf', 'name', 'order', 'is_primary')
     extra = 1
 
 
@@ -70,7 +79,7 @@ class ReadingAdmin(admin.ModelAdmin):
 
 class PracticeAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    inlines = [ PracticeImageInline, ]
+    inlines = [ PracticeImageInline, PracticePdfInline]
 
 
 admin.site.unregister(FlatPage)
@@ -83,3 +92,5 @@ admin.site.register(Training, TrainingAdmin)
 admin.site.register(Reading, ReadingAdmin)
 admin.site.register(Practice, PracticeAdmin)
 admin.site.register(PracticeImage)
+admin.site.register(PracticePdf)
+

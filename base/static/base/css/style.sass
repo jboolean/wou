@@ -25,7 +25,7 @@ $widescreen: 1140px
     clear: both
 
 p
-  margin: 0 0 4rem 0
+  margin: 0 0 2rem 0
 
 a
   text-decoration: underline
@@ -62,19 +62,19 @@ body
     line-height: 1.7
     font-size: 2.5rem
 
-  @media (min-width: $desktop)
-    font-size: 2.3rem
-    line-height: 1.6
+  @media (min-width: $tablet-wide)
+    font-size: 1.5rem
+    line-height: 1.5
 
 .navigation
   position: fixed
-  z-index: 2
+  z-index: 100
   top: 0
   right: 0
   padding: 0
   width: 100%
 
-  @media (min-width: $desktop)
+  @media (min-width: $tablet-wide)
     background-color: rgb(244, 241, 241)
 
   &.show
@@ -108,7 +108,7 @@ body
   -moz-transition: opacity .25s ease-in-out
   -webkit-transition: opacity .25s ease-in-out
 
-  @media (min-width: $desktop)
+  @media (min-width: $tablet-wide)
     text-align: center
     opacity: 1
     padding: 0
@@ -118,7 +118,7 @@ body
   width: 100%
   margin: 0 0 0.5rem 0
 
-  @media (min-width: $desktop)
+  @media (min-width: $tablet-wide)
     display: inline-block
     width: auto
     margin: 0
@@ -132,7 +132,7 @@ body
     text-transform: uppercase
     font-weight: bold
 
-    @media (min-width: $desktop)
+    @media (min-width: $tablet-wide)
       display: block
       padding: 0.5rem 1.8rem
       color: $color-type
@@ -148,15 +148,11 @@ body
   padding: 0.3rem 0.9rem
   background-color: rgba(244, 241, 241, 0.95)
 
-  @media (min-width: $tablet)
-    font-size: 5rem
-    padding: 0.3rem 1.5rem
-
-  @media (min-width: $desktop)
+  @media (min-width: $tablet-wide)
     display: none
 
   &:hover
-    @media (min-width: $desktop)
+    @media (min-width: $tablet-wide)
       cursor: pointer
 
 .content
@@ -191,9 +187,6 @@ body
   letter-spacing: 0.1rem
 
   @media (min-width: $tablet)
-    font-size: 5rem
-
-  @media (min-width: $widescreen)
     font-size: 4rem
 
 .section-content
@@ -282,10 +275,7 @@ body
   margin: 0
 
 .item__meta
-  margin: 0 0 0.5rem
-
-  @media (min-width: $tablet)
-    margin: 0 0 0 3rem
+  margin: 0 0 2rem
 
 .item__key
   font-weight: bold
@@ -416,13 +406,21 @@ body
       bottom: -3rem
 
 .gallery
-  margin: 0
+  margin: 0 0 3rem
 
 .gallery__item
   margin: 0 0 3rem
 
+  @media (min-width: $tablet-wide)
+    margin: 0
+    width: 48%
+    height: 25rem
+    display: inline-block
+
 .gallery__image
   width: 100%
+  height: 100%
+  object-fit: cover
 
 .practice__primary-image
   width: 100%

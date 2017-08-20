@@ -25,19 +25,33 @@ class Base(Model):
         return self.name
 
 
-class BaseImage(Model):
+class OrderedResource(Model):
     class Meta:
         abstract = True
 
-    image = ImageField(upload_to='images', verbose_name='Image')
     order = PositiveSmallIntegerField(default=0)
     is_primary = BooleanField(default=False)
     created = DateTimeField(auto_now_add=True, editable=False)
     updated = DateTimeField(auto_now=True, editable=False)
 
+
+class BaseImage(OrderedResource):
+    class Meta:
+        abstract = True
+
+    image = ImageField(upload_to='images', verbose_name='Image')
+
     @property
     def image_tag(self):
         return format_html('<img src="/static/uploads/%s" height="100" />' % self.image)
+
+
+class BasePdf(OrderedResource):
+    class Meta:
+        abstract = True
+
+    name = CharField(max_length=200)
+    pdf = FileField(upload_to='pdfs', blank=True, null=True)
 
 
 class ContentBlock(Base):
@@ -100,19 +114,19 @@ class Contributor(Base):
     class Meta:
         ordering = ['name']
 
-    pass
+    bio = HTMLField(blank=True, null=True)
 
 
 class Practice(Base):
     class Meta:
         ordering = ['name']
 
-    contributor = ForeignKey(Contributor)
+    contributors = ManyToManyField(Contributor)
     description = HTMLField(null=True, blank=True)
     tools = ManyToManyField(Tool, blank=True)
     trainings = ManyToManyField(Training, blank=True)
     readings = ManyToManyField(Reading, blank=True)
-    link = URLField()
+    link = URLField(blank=True, null=True)
     tags = TaggableManager()
 
     @property
@@ -122,6 +136,17 @@ class Practice(Base):
             return qs[0]
         return None
 
+    @property
+    def primary_pdf(self):
+        qs = self.practicepdf_set.filter(is_primary=1)
+        if len(qs) > 0:
+            return qs[0]
+        return None
+
 
 class PracticeImage(BaseImage):
+    practice = ForeignKey('Practice')
+
+
+class  PracticePdf(BasePdf):
     practice = ForeignKey('Practice')

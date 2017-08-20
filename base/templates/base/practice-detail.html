@@ -17,7 +17,7 @@
 	<div class="section-content">
 		<div class="item item--detail">
 			{% if practice.primary_image %}
-			<img class="item__primary-image" src="{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
+			<img class="item__primary-image" src="{% get_media_prefix %}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
 			{% endif %}
 
 			{% if practice.tags %}
@@ -30,23 +30,33 @@
 			</div>
 			{% endif %}
 
+			{% if practice.contributors.all %}
+			<div class="item__meta">
+				<span class="item__key">By: </span>
+				<span class="item__value">
+				{% for contributor in practice.contributors.all %}
+				{{ contributor.name }}{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+				</span>
+			</div>
+			{% endif %}
+
 			{% if practice.description %}
 			<div class="item__meta">
 				<span class="item__value">{{ practice.description|safe }}</span>
 			</div>
 			{% endif %}
 
-			{% if practice.tools %}
+			{% if practice.primary_pdf %}
 			<div class="item__meta">
-				<span class="item__key">Tool: </span>
-				<span class="item__value">{{ practice.tools.all.first }}</span>
-			</div>
-			{% endif %}
-
-			{% if practice.contributor %}
-			<div class="item__meta">
-				<span class="item__key">By: </span>
-				<span class="item__value">{{ practice.contributor.name }}</span>
+				<span class="item__key">PDF: </span>
+				<span class="item__value">
+					{% for pdf in practice.practicepdf_set.all %}
+  				<a class="item-pdf" target="_blank" href="{{ pdf.pdf.url }}">
+  					{{ pdf.name }}
+  				</a>
+  				{% endfor %}
+				</span>
 			</div>
 			{% endif %}
 
@@ -61,18 +71,39 @@
 			</div>
 			{% endif %}
 
-			{% if practice.readings %}
+			{% if practice.readings.length > 0 %}
 			<div class="item__meta">
-				<span class="item__key">Readings: </span>
+				<span class="item__key">Additional Readings: </span>
 				<span class="item__value">
 				{% for reading in practice.readings.all %}
-					<a class="practice-reading" href="/uploads/{{ MEDIA_URL }}{{ reading.pdf }}">
+					<a class="practice-reading" target="_blank" href="{% get_media_prefix %}{{ reading.pdf }}">
 						{{ reading.name }}
 					</a>
 				{% endfor %}
 				</span>
 			</div>
 			{% endif %}
+
+			{% if practice.practiceimage_set.all %}
+			<div class="item__gallery gallery">
+			{% for item in practice.practiceimage_set.all %}
+			{% if not item.is_primary %}
+				<div class="gallery__item">
+					<img class="gallery__image" src="{% get_media_prefix %}{{ item.image }}" alt="{{ practice.name }}" />
+				</div>
+			{% endif %}
+			{% endfor %}
+			</div>
+			{% endif %}
+
+			{% for contributor in practice.contributors.all %}
+			{% if contributor.bio %}
+			<div class="item__meta">
+				<span class="item__key">About {{ contributor }}: </span>
+				<span class="item__value">{{ contributor.bio|safe }}</span>
+			</div>
+			{% endif %}
+			{% endfor %}
 		</div>
 	</div>
 </section>

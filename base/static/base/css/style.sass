@@ -445,9 +445,12 @@ body
 .item__list
   margin: 6rem 0 0 0
 
-  li
+  .list__item
+    margin: 0 0 3rem 0
+
     @media (min-width: $tablet)
       clear: both
+      margin: 0
 
 .reading__name,
 .reading__tags
@@ -456,16 +459,32 @@ body
   @media (min-width: $tablet)
     float: left
 
+.list__item--header
+  display: none
+  font-weight: bold
+  overflow: hidden
+  margin: 0 0 1rem 0
+
+  @media (min-width: $tablet)
+    display: block
+
 .reading__tags
-  margin: 0 0 0 4rem
+  margin: 0
 
 .reading__name
   @media (min-width: $tablet)
-    width: 30%
+    width: 50%
 
 .reading__tags
   @media (min-width: $tablet)
-    width: 50%
+    width: 45%
+
+.name__label,
+.tags__label
+  font-weight: bold
+
+  @media (min-width: $tablet)
+    display: none
 
 .reading__tag
 

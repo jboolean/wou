@@ -416,9 +416,12 @@ body {
 
 .item__list {
   margin: 6rem 0 0 0; }
-  @media (min-width: 768px) {
-    .item__list li {
-      clear: both; } }
+  .item__list .list__item {
+    margin: 0 0 3rem 0; }
+    @media (min-width: 768px) {
+      .item__list .list__item {
+        clear: both;
+        margin: 0; } }
 
 .reading__name,
 .reading__tags {
@@ -428,16 +431,33 @@ body {
     .reading__tags {
       float: left; } }
 
+.list__item--header {
+  display: none;
+  font-weight: bold;
+  overflow: hidden;
+  margin: 0 0 1rem 0; }
+  @media (min-width: 768px) {
+    .list__item--header {
+      display: block; } }
+
 .reading__tags {
-  margin: 0 0 0 4rem; }
+  margin: 0; }
 
 @media (min-width: 768px) {
   .reading__name {
-    width: 30%; } }
+    width: 50%; } }
 
 @media (min-width: 768px) {
   .reading__tags {
-    width: 50%; } }
+    width: 45%; } }
+
+.name__label,
+.tags__label {
+  font-weight: bold; }
+  @media (min-width: 768px) {
+    .name__label,
+    .tags__label {
+      display: none; } }
 
 .training--empty {
   text-align: center; }

@@ -1,5 +1,7 @@
 {% extends "base/base.html" %}
 
+{% load static %}
+
 {% block navigation %}
 {% include 'base/navigation.html' %}
 {% endblock navigation %}
@@ -17,20 +19,27 @@
 			<div class="item__meta">
 				<span class="item__key">Contributed by: </span>
 				<span class="item__value">
-					{% for practice in practices %}
-					<a class="item__practice" href="{% url 'base:practice-detail' practice.slug %}">{{ practice.contributor.name }}</a>
-					{% if forloop.last %}{% else %}, {% endif %}
+					{% for contributor in contributors %}
+					<span class="item__contributor">
+						{{ contributor.name }}{% if forloop.last %}{% else %}, {% endif %}
+					</span>
 					{% endfor %}
 				</span>
 			</div>
 
 			<ul class="item__list">
+				<li class="list__item list__item--header">
+					<span class="reading__name">PDF</span>
+					<span class="reading__tags">TAGS</span>
+				</li>
 			{% for reading in readings %}
-				<li>
+				<li class="list__item">
 					<span class="reading__name">
-						<a href="/uploads/{{MEDIA_URL}}{{reading.pdf}}">{{ reading.name }}</a>
+						<span class="name__label">PDF: </span>
+						<a target="_blank" href="{% get_media_prefix %}{{reading.pdf}}">{{ reading.name }}</a>
 					</span>
 					<span class="reading__tags">
+					<span class="tags__label">TAGGED: </span>
 					{% for tag in reading.tags.all %}
 						(<a class="reading__tag" href="{% url 'base:tag-detail' tag.slug %}">{{ tag.name }}</a>)
 					{% endfor %}

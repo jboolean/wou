@@ -13,7 +13,7 @@ class Exhibition(Base):
     start_date = DateTimeField()
     end_date = DateTimeField()
     description = HTMLField(null=True)
-    content_blocks = ManyToManyField(ContentBlock, blank=True, null=True)
+    content_blocks = ManyToManyField(ContentBlock, blank=True)
     tools = ManyToManyField(Tool, blank=True)
     facilitators = ManyToManyField(Facilitator, blank=True)
     trainings = ManyToManyField(Training, blank=True)

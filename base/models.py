@@ -94,7 +94,7 @@ class Reading(Base):
     tags = TaggableManager()
 
 
-class Group(Base):
+class Contributor(Base):
     class Meta:
         ordering = ['name']
 
@@ -104,7 +104,7 @@ class Practice(Base):
     class Meta:
         ordering = ['name']
 
-    group = ForeignKey(Group)
+    contributor = ForeignKey(Contributor)
     description = HTMLField(null=True, blank=True)
     tools = ManyToManyField(Tool, blank=True)
     trainings = ManyToManyField(Training, blank=True)

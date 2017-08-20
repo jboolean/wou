@@ -18,7 +18,7 @@
 				<span class="item__key">Contributed by: </span>
 				<span class="item__value">
 					{% for practice in practices %}
-					<a class="item__practice" href="{% url 'base:practice-detail' practice.slug %}">{{ practice.group.name }}</a>
+					<a class="item__practice" href="{% url 'base:practice-detail' practice.slug %}">{{ practice.contributor.name }}</a>
 					{% if forloop.last %}{% else %}, {% endif %}
 					{% endfor %}
 				</span>

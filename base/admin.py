@@ -51,8 +51,10 @@ class ContentBlockAdmin(admin.ModelAdmin):
     list_display = ('name', 'position', 'url', 'is_on_main_site')
     list_editable = ('position', 'is_on_main_site')
 
+
 class ContributorAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+
 
 class FacilitatorAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
@@ -79,6 +81,7 @@ class ReadingAdmin(admin.ModelAdmin):
 
 class PracticeAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+    fields = ('name', 'slug', 'contributors', 'description', 'trainings', 'readings', 'link', 'tags')
     inlines = [ PracticeImageInline, PracticePdfInline]
 
 

@@ -42,6 +42,8 @@ class ContentBlockAdmin(admin.ModelAdmin):
     list_display = ('name', 'position', 'url', 'is_on_main_site')
     list_editable = ('position', 'is_on_main_site')
 
+class ContributorAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
 
 class FacilitatorAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
@@ -74,7 +76,7 @@ class PracticeAdmin(admin.ModelAdmin):
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, PageAdmin)
 admin.site.register(ContentBlock, ContentBlockAdmin)
-admin.site.register(Contributor)
+admin.site.register(Contributor, ContributorAdmin)
 admin.site.register(Facilitator, FacilitatorAdmin)
 admin.site.register(Tool, ToolAdmin)
 admin.site.register(Training, TrainingAdmin)

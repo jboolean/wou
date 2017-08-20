@@ -44,6 +44,8 @@ class TagDetailView(generic.TemplateView):
         readingsQuerySet = Reading.objects.filter(tags__slug__in=[tag.slug])
         context['readings'] = readingsQuerySet
         context['practices'] = Practice.objects.filter(readings__in=readingsQuerySet)
+        context['contributors'] = Contributor.objects.all()
+        context['content_blocks'] = ContentBlock.objects.filter(is_on_main_site=True)
         context['tag'] = tag
 
         return context
@@ -52,3 +54,18 @@ class TagDetailView(generic.TemplateView):
 class PracticeDetailView(generic.DetailView):
     template_name = 'base/practice-detail.html'
     model = Practice
+
+    def get_context_data(self, **kwargs):
+        context = super(PracticeDetailView, self).get_context_data(**kwargs)
+
+        today = datetime.now().date()
+
+        context['contributors'] = Contributor.objects.all()
+        context['practices'] = Practice.objects.all()
+        context['trainings'] = Training.objects.filter(date__gte=today)
+        context['content_blocks'] = ContentBlock.objects.filter(is_on_main_site=True)
+
+        if 'slug' in self.kwargs:
+            context['slug'] = self.kwargs['slug']
+
+        return context

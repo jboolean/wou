@@ -1,16 +1,47 @@
+{% load static %}
+
 <section class="section section-practices" id="practices">
 	<h2 class="section-header">COLLABORATIVE METHODS <a href="#metods"><i class="fa fa-chain fa-chain-big"></i></a></h2>
 	<div class="section-content">
 		<div class="section__row">
 		{% for practice in practices %}
 			<div class="item">
-				{% if practice.primary_image %}
-				<img class="practice__primary-image" src="{{ MEDIA_URL }}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
-				{% endif %}
-
-				<a href="{% url 'base:practice-detail' practice.slug %}">
-					{{practice.name}}
+				<a href="{% url 'base:practice-detail' slug=practice.slug %}">
+					{% if practice.primary_image %}
+					<img class="practice__primary-image" src="{% get_media_prefix %}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
+					{% else %}
+					<div class="practice__primary-image practice__primary-image--placeholder"></div>
+					{% endif %}
 				</a>
+
+				<h3 class="item__name">
+					<a href="{% url 'base:practice-detail' slug=practice.slug %}">
+						{{ practice.name }}
+					</a>
+					<a href="{% url 'base:practice-detail' slug=practice.slug %}">
+						<i class="fa fa-chain"></i>
+					</a>
+				</h3>
+
+				<div class="item__meta">
+					<span class="item__key">By: </span>
+					<span class="item__value">
+					{% for contributor in practice.contributors.all %}
+						<span class="item__contributor">{{contributor.name}}{% if forloop.last %}{% else %}, {% endif %}<span>
+					{% endfor %}
+					</span>
+				</div>
+
+				{% if practice.tags.all %}
+				<div class="item__meta">
+					<span class="item__key">Tags: </span>
+					<span class="item__value">
+					{% for tag in practice.tags.all %}
+						<a class="tag" href="{% url 'base:tag-detail' tag.slug %}">{{ tag.name }}</a>{% if forloop.last %}{% else %}, {% endif %}
+					{% endfor %}
+					</span>
+				</div>
+				{% endif %}
 			</div>
 		{% if forloop.counter|divisibleby:"3" %}
 		</div>

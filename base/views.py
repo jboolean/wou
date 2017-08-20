@@ -5,7 +5,13 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from taggit.models import Tag
-from .models import Practice, Reading, ContentBlock
+from .models import (
+    Contributor,
+    Practice,
+    Reading,
+    Training,
+    ContentBlock
+)
 
 class IndexView(generic.TemplateView):
     template_name = 'base/index.html'
@@ -13,7 +19,11 @@ class IndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
 
+        today = datetime.now().date()
+
+        context['contributors'] = Contributor.objects.all()
         context['practices'] = Practice.objects.all()
+        context['trainings'] = Training.objects.filter(date__gte=today)
         context['content_blocks'] = ContentBlock.objects.filter(is_on_main_site=True)
 
         if 'slug' in self.kwargs:

@@ -3,18 +3,18 @@
   <div class="section-content">
     <div class="section__row">
     {% for contributor in contributors %}
-      <div class="item">
-        <a href="{% url 'base:contributor-detail' contributor.slug %}">
-          {{contributor.name}}
-        </a>
-        <div class="contributor-bio">{{ contributor.bio|safe }}</div>
+      {% if contributor.bio %}
+      <div class="item item--text">
+        <span class="item__name item__name--contributor">{{contributor.name}}</span>
+        <div class="item__description">{{ contributor.bio|safe }}</div>
         {% if contributor.bio|length > 300 %}
-        <a href="#" class="contributor-toggle">read more</a>
+        <a href="#" class="item__toggle">read more</a>
         {% endif %}
       </div>
-    {% if forloop.counter|divisibleby:"2" %}
+      {% if forloop.counter|divisibleby:"2" %}
     </div>
     <div class="section__row">
+      {% endif %}
     {% endif %}
     {% endfor %}
   </div>

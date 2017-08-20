@@ -4,7 +4,7 @@ var bindEvents = function() {
 	var elements = {
 		mobileMenuButton: document.querySelector('.navicon'),
 		mobileMenu: document.querySelector('.navigation'),
-		mobileShowButtons: document.querySelectorAll('.facilitator-toggle'),
+		mobileShowButtons: document.querySelectorAll('.facilitator-toggle, .item__toggle'),
 		scrollToAnchors: document.querySelectorAll('.navigation-menu-item a, .tool-facilitator, .tool-training'),
 	};
 

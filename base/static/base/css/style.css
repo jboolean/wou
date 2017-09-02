@@ -475,6 +475,9 @@ body {
 .training--empty {
   text-align: center; }
 
+.training-time {
+  margin: 0; }
+
 .all-tags__item {
   display: block; }
   @media (min-width: 768px) {

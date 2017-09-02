@@ -361,19 +361,20 @@ body
     width: 100%
 
 .item--text
-  margin: 0 0 1rem 0
+  margin-bottom: 1rem
   padding: 6rem 0
   border-bottom: 1px solid $color-type
   position: relative
 
   @media (min-width: $tablet)
     padding: 6rem 3rem 6rem 0
-    margin: 0
+    margin-top: 0
+    margin-bottom: 0
     border: none
 
   @media (min-width: $widescreen)
     @include span(6 of 12 split)
-    margin: 0 0 3rem 0
+    margin-bottom: 3rem
     border-bottom: none
 
   &:last-child

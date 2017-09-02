@@ -72,7 +72,7 @@ class ToolAdmin(admin.ModelAdmin):
 class TrainingAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     readonly_fields = ('url',)
-    exclude = ('tools',)
+    exclude = ('tools', 'facilitators')
     list_display = ('name', 'date', 'link', 'url')
 
 

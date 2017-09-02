@@ -96,11 +96,18 @@ class Training(Base):
         ordering = ['date', 'name']
 
     date = DateTimeField()
+    contributors = ManyToManyField('Contributor', blank=True)
     facilitators = ManyToManyField(Facilitator, blank=True)
     tools = ManyToManyField(Tool, blank=True)
     description = HTMLField(null=True, blank=True)
     link = URLField()
 
+    @property
+    def leaders(self):
+        if (self.contributors):
+            return self.contributors
+        else:
+            return self.facilitators
 
 class Reading(Base):
     class Meta:

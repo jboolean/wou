@@ -32,7 +32,7 @@
 
 			{% if practice.contributors.all %}
 			<div class="item__meta">
-				<span class="item__key">By: </span>
+				<span class="item__key">Contributed By: </span>
 				<span class="item__value">
 				{% for contributor in practice.contributors.all %}
 				{{ contributor.name }}{% if not forloop.last %}, {% endif %}

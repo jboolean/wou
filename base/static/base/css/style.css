@@ -258,7 +258,7 @@ body {
   font-weight: bold; }
 
 .item__meta {
-  margin: 0 0 2rem; }
+  margin: 0; }
 
 .item__key {
   font-weight: bold; }

@@ -24,3 +24,5 @@ urlpatterns = [
     url(r'^exhibitions/', include('exhibitions.urls', namespace='exhibitions')),
     url(r'^', include('base.urls', namespace='base')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'base.views.handle_page_not_found'

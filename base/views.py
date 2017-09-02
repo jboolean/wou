@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, time
 from django.conf import settings
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
@@ -73,3 +73,7 @@ class PracticeDetailView(generic.DetailView):
             context['slug'] = self.kwargs['slug']
 
         return context
+
+def handle_page_not_found(request):
+    return redirect('base:index')
+

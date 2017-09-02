@@ -163,6 +163,9 @@ body {
     .section-header {
       font-size: 4rem; } }
 
+.section-header--artists {
+  margin: 0; }
+
 .section-content {
   max-width: 120rem;
   margin-left: auto;
@@ -335,13 +338,13 @@ body {
 
 .item--text {
   margin: 0 0 1rem 0;
-  padding: 0 0 5rem 0;
+  padding: 6rem 0;
   border-bottom: 1px solid #170c01;
   position: relative; }
   @media (min-width: 768px) {
     .item--text {
-      margin: 0 0 3rem 0;
-      padding: 0 6rem 6rem 0;
+      padding: 6rem 3rem 6rem 0;
+      margin: 0;
       border: none; } }
   @media (min-width: 1140px) {
     .item--text {
@@ -349,8 +352,8 @@ body {
       float: left;
       margin-left: 2.0833333333%;
       margin-right: 2.0833333333%;
-      border-bottom: none;
-      padding: 0 0 4rem 0; } }
+      margin: 0 0 3rem 0;
+      border-bottom: none; } }
   .item--text:last-child {
     border-bottom: none; }
   @media (min-width: 1140px) {

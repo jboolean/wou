@@ -32,7 +32,7 @@
 				<span class="item__value">
 					{% for practice in practices %}
 					<span class="item__contributor">
-						<a href="{% url 'base:index' %}#{{ practice.slug }}">{{ practice.name }}</a>{% if forloop.last %}{% else %}, {% endif %}
+						<a href="{% url 'base:practice-detail' slug=practice.slug %}">{{ practice.name }}</a>{% if forloop.last %}{% else %}, {% endif %}
 					</span>
 					{% endfor %}
 				</span>

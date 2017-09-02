@@ -260,6 +260,9 @@ body {
 .item__meta {
   margin: 0; }
 
+.item--detail .item__meta {
+  margin: 0 0 2rem; }
+
 .item__key {
   font-weight: bold; }
 

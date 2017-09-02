@@ -17,11 +17,22 @@
 	<div class="section-content">
 		<div class="item--detail">
 			<div class="item__meta">
-				<span class="item__key">Contributed by: </span>
+				<span class="item__key">Contributed By: </span>
 				<span class="item__value">
 					{% for contributor in contributors %}
 					<span class="item__contributor">
 						<a href="{% url 'base:index' %}#{{ contributor.slug }}">{{ contributor.name }}</a>{% if forloop.last %}{% else %}, {% endif %}
+					</span>
+					{% endfor %}
+				</span>
+			</div>
+
+			<div class="item__meta">
+				<span class="item__key">Associated Methods: </span>
+				<span class="item__value">
+					{% for practice in practices %}
+					<span class="item__contributor">
+						<a href="{% url 'base:index' %}#{{ practice.slug }}">{{ practice.name }}</a>{% if forloop.last %}{% else %}, {% endif %}
 					</span>
 					{% endfor %}
 				</span>

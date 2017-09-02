@@ -9,7 +9,7 @@
 {% block content %}
 <section class="section section--detail section--tag section--{{tag.slug}}">
 	<h2 class="section-header">
-		{{tag.name|upper}}
+		({{tag.name|upper}})
 		<a href="{% url 'base:tag-detail' slug=tag.slug %}">
 			<i class="fa fa-chain fa-chain-big"></i>
 		</a>

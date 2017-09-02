@@ -21,7 +21,7 @@
 				<span class="item__value">
 					{% for contributor in contributors %}
 					<span class="item__contributor">
-						{{ contributor.name }}{% if forloop.last %}{% else %}, {% endif %}
+						<a href="{% url 'base:index' %}#{{ contributor.slug }}">{{ contributor.name }}</a>{% if forloop.last %}{% else %}, {% endif %}
 					</span>
 					{% endfor %}
 				</span>

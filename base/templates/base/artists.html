@@ -4,8 +4,11 @@
     <div class="section__row">
     {% for contributor in contributors %}
       {% if contributor.bio %}
-      <div class="item item--text">
+      <div class="item item--text" id="{{ contributor.slug }}">
         <span class="item__name item__name--contributor">{{contributor.name}}</span>
+        <a href="{% url 'base:index' %}#{{ contributor.slug }}">
+          <i class="fa fa-chain"></i>
+        </a>
         <div class="item__description">{{ contributor.bio|safe }}</div>
         {% if contributor.bio|length > 300 %}
         <a href="#" class="item__toggle">read more</a>

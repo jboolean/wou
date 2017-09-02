@@ -35,7 +35,7 @@
 				<span class="item__key">Contributed By: </span>
 				<span class="item__value">
 				{% for contributor in practice.contributors.all %}
-				{{ contributor.name }}{% if not forloop.last %}, {% endif %}
+				<a href="{% url 'base:index' %}#{{ contributor.slug }}">{{ contributor.name }}</a>{% if not forloop.last %}, {% endif %}
 				{% endfor %}
 				</span>
 			</div>

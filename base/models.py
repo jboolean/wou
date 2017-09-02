@@ -157,7 +157,7 @@ class Practice(Base):
 
     @property
     def sorted_tags(self):
-        return self.tags.order_by('name')
+        return self.tags.filter(reading__name__isnull=False).distinct().order_by('name')
 
 
 class PracticeImage(BaseImage):

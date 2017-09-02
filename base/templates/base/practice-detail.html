@@ -20,7 +20,7 @@
 			<img class="item__primary-image" src="{% get_media_prefix %}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
 			{% endif %}
 
-			{% if practice.tags %}
+			{% if practice.sorted_tags %}
 			<div class="item__meta">
 				<p class="item__tags">
 				{% for tag in practice.sorted_tags.all %}

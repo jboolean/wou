@@ -7,7 +7,7 @@
 {% endblock navigation %}
 
 {% block content %}
-<section class="section section--detail section--{{tag.slug}}">
+<section class="section section--detail section--tag section--{{tag.slug}}">
 	<h2 class="section-header">
 		{{tag.name|upper}}
 		<a href="{% url 'base:tag-detail' slug=tag.slug %}">
@@ -47,6 +47,20 @@
 				</li>
 			{% endfor %}
 			</ul>
+		</div>
+	</div>
+</section>
+<section class="section section--detail section--all-tags">
+	<h2 class="section-header">
+		More Readings
+	</h2>
+	<div class="section-content">
+		<div class="item--detail">
+		{% for tag in all_tags %}
+			<span class="all-tags__item">
+				(<a class="reading__tag" href="{% url 'base:tag-detail' tag.slug %}">{{ tag.name }}</a>)
+			</span>
+		{% endfor %}
 		</div>
 	</div>
 </section>

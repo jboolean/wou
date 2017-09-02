@@ -50,7 +50,7 @@ class TagDetailView(generic.TemplateView):
         context['contributors'] = contributorQuerySet
         context['content_blocks'] = ContentBlock.objects.filter(is_on_main_site=True)
         context['tag'] = tag
-        context['all_tags'] = Tag.objects.distinct().order_by('name')
+        context['all_tags'] = Tag.objects.filter(reading__name__isnull=False).distinct().order_by('name')
 
         return context
 

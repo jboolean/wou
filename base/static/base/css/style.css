@@ -223,15 +223,13 @@ body {
 
 .item {
   margin: 0 0 3rem 0;
-  padding: 0 0 3rem 0;
-  border-bottom: 1px solid #170c01; }
+  padding: 0 0 3rem 0; }
   @media (min-width: 960px) {
     .item {
       width: 29.1666666667%;
       float: left;
       margin-left: 2.0833333333%;
       margin-right: 2.0833333333%;
-      border-bottom: none;
       padding: 0; } }
   @media (min-width: 1140px) {
     .item {
@@ -239,8 +237,6 @@ body {
       float: left;
       margin-left: 2.0833333333%;
       margin-right: 2.0833333333%; } }
-  .item:last-child {
-    border-bottom: none; }
   .item.item--detail {
     margin: 0;
     padding: 0;
@@ -272,13 +268,10 @@ body {
 
 .event {
   margin: 0 0 3rem 0;
-  padding: 0 0 3rem 0;
-  border-bottom: 1px solid #170c01; }
-  .event:last-child {
-    border-bottom: none; }
-    @media (min-width: 1140px) {
-      .event:last-child {
-        padding: 0; } }
+  padding: 0 0 3rem 0; }
+  @media (min-width: 1140px) {
+    .event:last-child {
+      padding: 0; } }
 
 .event__time {
   margin: 0; }
@@ -295,10 +288,7 @@ body {
 .section__row--texts {
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid #170c01;
   margin-bottom: 1rem; }
-  .section__row--texts:last-child {
-    border-bottom: none; }
   @media (min-width: 768px) {
     .section__row--texts {
       margin-bottom: 3rem; } }
@@ -312,15 +302,13 @@ body {
 
 .item {
   margin: 0 0 3rem 0;
-  padding: 0 0 3rem 0;
-  border-bottom: 1px solid #170c01; }
+  padding: 0 0 3rem 0; }
   @media (min-width: 960px) {
     .item {
       width: 45.8333333333%;
       float: left;
       margin-left: 2.0833333333%;
       margin-right: 2.0833333333%;
-      border-bottom: none;
       padding: 0;
       font-size: 1.8rem; } }
   @media (min-width: 1140px) {
@@ -330,8 +318,6 @@ body {
       margin-left: 2.0833333333%;
       margin-right: 2.0833333333%;
       font-size: 1.6rem; } }
-  .item:last-child {
-    border-bottom: none; }
   .item.item--detail {
     margin: 0;
     padding: 0;
@@ -340,24 +326,19 @@ body {
 .item--text {
   margin-bottom: 1rem;
   padding: 6rem 0;
-  border-bottom: 1px solid #170c01;
   position: relative; }
   @media (min-width: 768px) {
     .item--text {
       padding: 6rem 3rem 6rem 0;
       margin-top: 0;
-      margin-bottom: 0;
-      border: none; } }
+      margin-bottom: 0; } }
   @media (min-width: 1140px) {
     .item--text {
       width: 45.8333333333%;
       float: left;
       margin-left: 2.0833333333%;
       margin-right: 2.0833333333%;
-      margin-bottom: 3rem;
-      border-bottom: none; } }
-  .item--text:last-child {
-    border-bottom: none; }
+      margin-bottom: 3rem; } }
   @media (min-width: 1140px) {
     .item--text.show {
       padding: 0; } }

@@ -253,18 +253,13 @@ body
 .item
   margin: 0 0 3rem 0
   padding: 0 0 3rem 0
-  border-bottom: 1px solid $color-type
 
   @media (min-width: $desktop)
     @include span(4 of 12 split)
-    border-bottom: none
     padding: 0
 
   @media (min-width: $widescreen)
     @include span(4 of 12 split)
-
-  &:last-child
-    border-bottom: none
 
   &.item--detail
     margin: 0
@@ -298,11 +293,8 @@ body
 .event
   margin: 0 0 3rem 0
   padding: 0 0 3rem 0
-  border-bottom: 1px solid $color-type
 
   &:last-child
-    border-bottom: none
-
     @media (min-width: $widescreen)
       padding: 0
 
@@ -321,11 +313,7 @@ body
 .section__row--texts
   position: relative
   overflow: hidden
-  border-bottom: 1px solid $color-type
   margin-bottom: 1rem
-
-  &:last-child
-    border-bottom: none
 
   @media (min-width: $tablet)
     margin-bottom: 3rem
@@ -340,20 +328,15 @@ body
 .item
   margin: 0 0 3rem 0
   padding: 0 0 3rem 0
-  border-bottom: 1px solid $color-type
 
   @media (min-width: $desktop)
     @include span(6 of 12 split)
-    border-bottom: none
     padding: 0
     font-size: 1.8rem
 
   @media (min-width: $widescreen)
     @include span(6 of 12 split)
     font-size: 1.6rem
-
-  &:last-child
-    border-bottom: none
 
   &.item--detail
     margin: 0
@@ -363,22 +346,16 @@ body
 .item--text
   margin-bottom: 1rem
   padding: 6rem 0
-  border-bottom: 1px solid $color-type
   position: relative
 
   @media (min-width: $tablet)
     padding: 6rem 3rem 6rem 0
     margin-top: 0
     margin-bottom: 0
-    border: none
 
   @media (min-width: $widescreen)
     @include span(6 of 12 split)
     margin-bottom: 3rem
-    border-bottom: none
-
-  &:last-child
-    border-bottom: none
 
   &.show
     @media (min-width: $widescreen)

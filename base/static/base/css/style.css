@@ -369,6 +369,9 @@ body {
     @media (min-width: 960px) {
       .item--text .item__description {
         height: 19.5rem; } }
+    @media (min-width: 1140px) {
+      .item--text .item__description {
+        height: 19rem; } }
   .item--text .item__toggle {
     position: absolute;
     right: 2rem;

@@ -94,6 +94,7 @@ class Facilitator(Base):
 class Training(Base):
     class Meta:
         ordering = ['date', 'name']
+        verbose_name = 'Event'
 
     date = DateTimeField()
     contributors = ManyToManyField('Contributor', blank=True)

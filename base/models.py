@@ -109,6 +109,10 @@ class Reading(Base):
     pdf = FileField(upload_to='texts', blank=True, null=True)
     tags = TaggableManager()
 
+    @property
+    def sorted_tags(self):
+        return self.tags.order_by('name')
+
 
 class Contributor(Base):
     class Meta:
@@ -142,6 +146,10 @@ class Practice(Base):
         if len(qs) > 0:
             return qs[0]
         return None
+
+    @property
+    def sorted_tags(self):
+        return self.tags.order_by('name')
 
 
 class PracticeImage(BaseImage):

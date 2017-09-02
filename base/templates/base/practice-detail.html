@@ -23,7 +23,7 @@
 			{% if practice.tags %}
 			<div class="item__meta">
 				<p class="item__tags">
-				{% for tag in practice.tags.all %}
+				{% for tag in practice.sorted_tags.all %}
 					(<a class="tag" href="{% url 'base:tag-detail' tag.slug %}">{{ tag.name }}</a>)
 				{% endfor %}
 				</p>

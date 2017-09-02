@@ -40,7 +40,7 @@
 					</span>
 					<span class="reading__tags">
 					<span class="tags__label">TAGGED: </span>
-					{% for tag in reading.tags.all %}
+					{% for tag in reading.sorted_tags.all %}
 						(<a class="reading__tag" href="{% url 'base:tag-detail' tag.slug %}">{{ tag.name }}</a>)
 					{% endfor %}
 					</span>

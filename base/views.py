@@ -41,9 +41,9 @@ class TagDetailView(generic.TemplateView):
 
         tag = get_object_or_404(Tag, slug=self.kwargs['slug'])
 
-        readingsQuerySet = Reading.objects.filter(tags__slug__in=[tag.slug])
-        practiceQuerySet = Practice.objects.filter(readings__in=readingsQuerySet)
-        contributorQuerySet = Contributor.objects.filter(practice__in=practiceQuerySet)
+        readingsQuerySet = Reading.objects.filter(tags__slug__in=[tag.slug]).distinct()
+        practiceQuerySet = Practice.objects.filter(readings__in=readingsQuerySet).distinct()
+        contributorQuerySet = Contributor.objects.filter(practice__in=practiceQuerySet).distinct()
 
         context['readings'] = readingsQuerySet
         context['practices'] = practiceQuerySet

@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+
+{% block navigation %}
+{% include 'base/navigation.html' %}
+{% endblock navigation %}
+
+{% block content %}
+
+<section class="section section-mailing-list" id="past-trainings">
+  <h2 class="section-header">JOIN THE MAILING LIST  <a href="{% url 'base:mailing-list-join' %}"><i class="fa fa-chain fa-chain-big"></i></a></h2>
+  <div class="section-content">
+    <form action="">
+      <label for="email">Email Address</label>
+      <input name="" type="text" id="email"/>
+
+      <label for="first_name">First Name</label>
+      <input name="" type="text" id="first_name"/>
+
+      <label for="last_name">Last Name</label>
+      <input name="" type="text" id="last_name"/>
+
+      <p>Email me about</p>
+      <input type="checkbox" name="" id="a1" value="New Collaborative Methods"/>
+      <label for="a1">New Collaborative Methods</label>
+      <input type="checkbox" name="" id="a2" value="Upcoming Events and Trainings"/>
+      <label for="a2">Upcoming Events and Trainings</label>
+      <input type="checkbox" name="" id="a3" value="Jobs">
+      <label for="a3">Jobs</label>
+
+      <label for="comments">Comments?</label>
+      <input name="" type="text" id="comments"/>
+
+      <input class="button" type="submit" value="Submit">
+    </form>
+  </div>
+</section>
+
+{% endblock content %}

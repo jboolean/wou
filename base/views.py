@@ -89,6 +89,16 @@ class PastView(generic.TemplateView):
         return context
 
 
+class MailingListJoinView(generic.TemplateView):
+    template_name = 'base/mailing-list-join.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MailingListJoinView, self).get_context_data(**kwargs)
+        context['content_blocks'] = ContentBlock.objects.filter(is_on_main_site=True)
+
+        return context
+
+
 def handle_page_not_found(request):
     return redirect('base:index')
 

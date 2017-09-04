@@ -67,6 +67,8 @@ body {
   .navigation.show .navigation-menu {
     height: auto;
     opacity: 1; }
+  .navigation.show .navigation-menu-item a {
+    display: none; }
   .navigation.show .navicon {
     color: rgba(23, 12, 1, 0.2); }
 

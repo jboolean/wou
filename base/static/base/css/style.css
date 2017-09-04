@@ -115,7 +115,8 @@ body {
   display: block;
   position: absolute;
   right: 0;
-  z-index: 10;
+  z-index: 1000;
+  cursor: pointer;
   color: #170c01;
   font-size: 3.5rem;
   padding: 0.3rem 0.9rem;

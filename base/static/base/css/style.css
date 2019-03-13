@@ -485,6 +485,7 @@ body {
 .section--video {
   padding-top: 10rem;
   max-width: 120rem;
+  min-height: auto;
   margin-left: auto;
   margin-right: auto;
 }

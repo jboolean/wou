@@ -5,6 +5,9 @@ from django.utils.html import format_html
 from tinymce.models import HTMLField
 from taggit.managers import TaggableManager
 from six import python_2_unicode_compatible
+from django.db.models.signals import post_save, post_delete
+from django.core.cache import cache
+from django.dispatch import receiver
 
 
 @python_2_unicode_compatible
@@ -166,3 +169,7 @@ class PracticeImage(BaseImage):
 
 class  PracticePdf(BasePdf):
     practice = ForeignKey(Practice, on_delete = CASCADE)
+
+@receiver([post_save, post_delete])
+def clear_the_cache(**kwargs):
+    cache.clear() 

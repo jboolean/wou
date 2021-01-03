@@ -1,0 +1,56 @@
+service: wou
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: production
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+      - s3:*
+      Resource: arn:aws:s3:::wou-media-production/*
+  # Tags for billing tracking
+  stackTags:
+   Client: woolard
+   Project: wou
+
+plugins:
+ - serverless-wsgi
+ - serverless-python-requirements
+ - serverless-secrets-plugin
+ - serverless-apigw-binary
+ - serverless-domain-manager
+
+functions:
+  app:
+      handler: wsgi_handler.handler
+      events:
+        - http: ANY /
+        - http: ANY {proxy+}
+      environment: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
+
+
+package:
+ exclude:
+  - node_modules/**
+  - uploads/**
+  - eggs/**
+  - develop-eggs/**
+  - bin/**
+  - "*.sqlite"
+
+
+custom:
+  wsgi:
+    pythonBin: python3
+    app: wound.wsgi.application
+  pythonRequirements:
+    dockerizePip: true
+  apigwBinary:
+    types:
+      - 'multipart/form-data'
+  customDomain:
+    domainName: studycollaboration.com
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true

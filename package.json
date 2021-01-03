@@ -1,0 +1,33 @@
+{
+  "name": "wou",
+  "version": "1.0.0",
+  "description": "studycollaboration.com - serverless deployment tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bootstrap": "python bootstrap.py",
+    "buildout": "./bin/buildout -N",
+    "collectstatic:prod": "./bin/django-prod collectstatic --no-input",
+    "migrate:prod": "serverless wsgi manage -c migrate",
+    "clearcache:prod": "serverless wsgi manage -c clearcache",
+    "deploy:prod": "npm run buildout && serverless deploy && npm run collectstatic:prod && npm run migrate:prod && npm run clearcache:prod",
+    "logs": "serverless logs -f app -t --startTime 1m"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jboolean/wou.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jboolean/wou/issues"
+  },
+  "homepage": "https://github.com/jboolean/wou#readme",
+  "devDependencies": {
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-domain-manager": "^5.1.0",
+    "serverless-python-requirements": "^5.1.0",
+    "serverless-secrets-plugin": "^0.1.0",
+    "serverless-wsgi": "^1.7.6"
+  }
+}

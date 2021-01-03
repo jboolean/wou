@@ -43,7 +43,7 @@ class BaseImage(OrderedResource):
 
     @property
     def image_tag(self):
-        return format_html('<img src="/static/uploads/%s" height="100" />' % self.image)
+        return format_html('<img src="%s%s" height="100" />' % (settings.MEDIA_URL, self.image))
 
 
 class BasePdf(OrderedResource):

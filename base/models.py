@@ -161,8 +161,8 @@ class Practice(Base):
 
 
 class PracticeImage(BaseImage):
-    practice = ForeignKey('Practice')
+    practice = ForeignKey(Practice, on_delete = CASCADE)
 
 
 class  PracticePdf(BasePdf):
-    practice = ForeignKey('Practice')
+    practice = ForeignKey(Practice, on_delete = CASCADE)

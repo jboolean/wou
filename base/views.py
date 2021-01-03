@@ -99,6 +99,6 @@ class MailingListJoinView(generic.TemplateView):
         return context
 
 
-def handle_page_not_found(request):
+def handle_page_not_found(request, exception):
     return redirect('base:index')
 

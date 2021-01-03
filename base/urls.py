@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from six import python_2_unicode_compatible
 
 
 app_name = 'base'

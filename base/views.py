@@ -12,6 +12,7 @@ from .models import (
     Training,
     ContentBlock
 )
+from six import python_2_unicode_compatible
 
 class IndexView(generic.TemplateView):
     template_name = 'base/index.html'

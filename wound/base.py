@@ -122,8 +122,7 @@ USE_TZ = True
 # TinyMCE
 
 TINYMCE_DEFAULT_CONFIG = {
-    'plugins': 'spellchecker,paste',
-    'theme': 'advanced',
+    'plugins': 'spellchecker,paste,link',
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
 }

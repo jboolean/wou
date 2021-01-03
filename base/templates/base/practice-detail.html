@@ -1,6 +1,7 @@
 {% extends "base/base.html" %}
 
 {% load static %}
+{% load image_tags %}
 
 {% block navigation %}
 {% include 'base/navigation.html' %}
@@ -18,7 +19,9 @@
 		<div class="item item--detail">
 			{% if practice.primary_image %}
 			<img 
-				class="item__primary-image" src="{% get_media_prefix %}{{ practice.primary_image.image }}" 
+				class="item__primary-image" 
+				src="{% get_media_prefix %}{{ practice.primary_image.image }}" 
+				srcset="{{ practice.primary_image.image | srcset }}"
 				alt="{{ project.name }}" 
 				loading="lazy"
 			/>
@@ -94,7 +97,9 @@
 			{% if not item.is_primary %}
 				<div class="gallery__item">
 					<img 
-						class="gallery__image" src="{% get_media_prefix %}{{ item.image }}" 
+						class="gallery__image" 
+						src="{% get_media_prefix %}{{ item.image }}" 
+						srcset="{{ item.image | srcset }}"
 						alt="{{ practice.name }}" 
 						loading="lazy"
 					/>

@@ -1,3 +1,5 @@
+{% load image_tags %}
+
 <section class="section section-tools" id="tools">
 	<h2 class="section-header">TOOLS <a href="#tools"><i class="fa fa-chain fa-chain-big"></i></a></h2>
 	<div class="section-content">
@@ -7,6 +9,7 @@
 				<img 
 					class="tool-image" 
 					src="{{ tool.image.url }}" 
+					srcset="{{ tool.image | srcset }}"
 					alt="{{ tool.name }}" 
 					loading="lazy"
 				/>

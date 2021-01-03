@@ -6,6 +6,11 @@
 		<div class="section-content">
 			{{ content_blocks.first.content|safe }}
 		</div>
-		<img class="header" alt="Wound" src="{% static 'base/images/wound_space.jpg' %}" />
+		<img 
+			class="header" 
+			alt="Wound" 
+			src="{% static 'base/images/wound_space.jpg' %}" 
+			loading="lazy"
+		/>
 	</section>
 </header>

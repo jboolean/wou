@@ -17,7 +17,11 @@
 	<div class="section-content">
 		<div class="item item--detail">
 			{% if practice.primary_image %}
-			<img class="item__primary-image" src="{% get_media_prefix %}{{ practice.primary_image.image }}" alt="{{ project.name }}" />
+			<img 
+				class="item__primary-image" src="{% get_media_prefix %}{{ practice.primary_image.image }}" 
+				alt="{{ project.name }}" 
+				loading="lazy"
+			/>
 			{% endif %}
 
 			{% if practice.sorted_tags %}
@@ -89,7 +93,11 @@
 			{% for item in practice.practiceimage_set.all %}
 			{% if not item.is_primary %}
 				<div class="gallery__item">
-					<img class="gallery__image" src="{% get_media_prefix %}{{ item.image }}" alt="{{ practice.name }}" />
+					<img 
+						class="gallery__image" src="{% get_media_prefix %}{{ item.image }}" 
+						alt="{{ practice.name }}" 
+						loading="lazy"
+					/>
 				</div>
 			{% endif %}
 			{% endfor %}

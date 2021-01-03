@@ -4,7 +4,12 @@
 		<div class="tools-row">
 		{% for tool in tools %}
 			<div class="tool" id="{{ tool.slug }}">
-				<img class="tool-image" src="{{ tool.image.url }}" alt="{{ tool.name }}" />
+				<img 
+					class="tool-image" 
+					src="{{ tool.image.url }}" 
+					alt="{{ tool.name }}" 
+					loading="lazy"
+				/>
 				<h3 class="tool-name">{{ tool.name }} <a href="#{{ tool.slug }}"><i class="fa fa-chain"></i></a></h3>
 
 				<span class="tool-meta">Tool Type: </span>{{ tool.get_type_display }}
